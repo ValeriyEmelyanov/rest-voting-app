@@ -1,10 +1,15 @@
 package com.example.restvotingapp.dto;
 
+import com.example.restvotingapp.entity.Role;
+
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.Set;
 
 public class UserDto {
 
@@ -27,6 +32,9 @@ public class UserDto {
     private Date registered = new Date();
 
     private boolean enabled = true;
+
+    @Enumerated(EnumType.STRING)
+    private Set<Role> roles;
 
     public UserDto() {
     }
@@ -86,5 +94,13 @@ public class UserDto {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }

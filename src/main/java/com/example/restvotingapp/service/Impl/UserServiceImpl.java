@@ -36,4 +36,70 @@ public class UserServiceImpl implements UserService {
 
         return returnValue;
     }
+
+    @Override
+    public UserDto create(UserDto user) {
+        if (userRepository.findByEmail(user.getEmail()) != null) {
+            throw new RuntimeException("User already exists!");
+        }
+
+        User userEntity = new User();
+        BeanUtils.copyProperties(user, userEntity);
+
+        User storedUser = userRepository.save(userEntity);
+
+        UserDto returnValue = new UserDto();
+        BeanUtils.copyProperties(storedUser, returnValue);
+
+        return returnValue;
+    }
+
+    @Override
+    public UserDto getByEmail(String email) {
+        User userEntity = userRepository.findByEmail(email);
+
+        if (userEntity == null) {
+            throw new RuntimeException("User with E-Mail: " + email + " not found");
+        }
+
+        UserDto returnValue = new UserDto();
+        BeanUtils.copyProperties(userEntity, returnValue);
+
+        return returnValue;
+    }
+
+    @Override
+    public UserDto getById(Integer id) {
+        User userEntity = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User with ID: " + id + " not found"));
+
+        UserDto returnValue = new UserDto();
+        BeanUtils.copyProperties(userEntity, returnValue);
+
+        return returnValue;
+    }
+
+    @Override
+    public UserDto update(Integer id, UserDto user) {
+        User userEntity = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User with ID: " + id + " not found"));
+
+        userEntity.setName(user.getName());
+        userEntity.setEnabled(user.isEnabled());
+        userEntity.setRoles(user.getRoles());
+        User updatedUser = userRepository.save(userEntity);
+
+        UserDto returnValue = new UserDto();
+        BeanUtils.copyProperties(updatedUser, returnValue);
+
+        return returnValue;
+    }
+
+    @Override
+    public void delete(Integer id) {
+        User userEntity = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User with ID: " + id + " not found"));
+
+        userRepository.delete(userEntity);
+    }
 }

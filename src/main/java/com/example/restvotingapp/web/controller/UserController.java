@@ -6,10 +6,8 @@ import com.example.restvotingapp.service.UserService;
 import com.example.restvotingapp.web.model.UserRest;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,4 +35,39 @@ public class UserController {
         return returnValue;
     }
 
+    @GetMapping(path = "/{id}")
+    public UserRest getById(@PathVariable Integer id) {
+        UserRest returnValue = new UserRest();
+
+        UserDto userDto = userService.getById(id);
+        BeanUtils.copyProperties(userDto, returnValue);
+
+        return returnValue;
+    }
+
+    @PostMapping
+    public UserRest create(@RequestBody UserDto userDetails) {
+        UserRest returnValue = new UserRest();
+
+        UserDto createdUser = userService.create(userDetails);
+        BeanUtils.copyProperties(createdUser, returnValue);
+
+        return returnValue;
+    }
+
+    @PutMapping(path = "/{id}")
+    public UserRest update(@PathVariable Integer id, @RequestBody UserDto userDetails) {
+        UserRest returnValue = new UserRest();
+
+        UserDto updatedUser = userService.update(id, userDetails);
+        BeanUtils.copyProperties(updatedUser, returnValue);
+
+        return returnValue;
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Integer id) {
+        userService.delete(id);
+    }
 }
