@@ -1,7 +1,6 @@
 package com.example.restvotingapp.web.controller;
 
 import com.example.restvotingapp.dto.UserDto;
-import com.example.restvotingapp.entity.User;
 import com.example.restvotingapp.service.UserService;
 import com.example.restvotingapp.web.model.UserRest;
 import org.springframework.beans.BeanUtils;

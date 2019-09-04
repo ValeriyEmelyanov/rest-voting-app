@@ -11,8 +11,4 @@ public class RestVotingAppApplication {
         SpringApplication.run(RestVotingAppApplication.class, args);
     }
 
-//    @Bean
-//    public SpringApplicationContext springApplicationContext() {
-//        return new SpringApplicationContext();
-//    }
 }

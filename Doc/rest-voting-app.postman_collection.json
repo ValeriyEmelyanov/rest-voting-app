@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Users GET: users",
+			"name": "GET: users",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -31,7 +31,7 @@
 			"response": []
 		},
 		{
-			"name": "Users GET: users/101",
+			"name": "GET: users/101",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -57,7 +57,7 @@
 			"response": []
 		},
 		{
-			"name": "Users POST: users",
+			"name": "POST: users",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -74,7 +74,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\t\"name\":\"New user\",\n\t\t\"email\":\"NewUser@test.com\",\n\t\t\"password\":\"654321\",\n\t\t\"roles\":[ROLE_USER]\n}"
+					"raw": "{\n\t\t\"name\":\"New user\",\n\t\t\"email\":\"NewUser@test.com\",\n\t\t\"password\":\"654321\",\n\t\t\"roles\":[\"ROLE_USER\"]\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/users",
@@ -91,7 +91,7 @@
 			"response": []
 		},
 		{
-			"name": "User PUT: users/101",
+			"name": "PUT: users/101",
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -126,7 +126,7 @@
 			"response": []
 		},
 		{
-			"name": "User DELETE: users/101",
+			"name": "DELETE: users/101",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -139,6 +139,179 @@
 					"port": "8080",
 					"path": [
 						"users",
+						"101"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET: restaraunts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/restaraunts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restaraunts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET: restaraunts/active",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/restaraunts/active",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restaraunts",
+						"active"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET: restaraunts/101",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/restaraunts/101",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restaraunts",
+						"101"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST: restaraunts",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\t\"name\":\"Sogt light\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/restaraunts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restaraunts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT: restaraunts/101",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\t\"name\":\"East closed\",\n\t\t\"active\":\"false\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/restaraunts/101",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restaraunts",
+						"101"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE: restaraunts/101",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/restaraunts/101",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restaraunts",
 						"101"
 					]
 				}

@@ -1,5 +1,10 @@
 # REST Voting System for deciding where to have lunch
 
+This application uses:
+* Spring boot
+* Using Maven to build Spring Project
+* Spring MVC
+
 ### Task
 Design and implement a REST API using Hibernate/Spring/SpringMVC (or Spring-Boot) without frontend.
 
@@ -25,3 +30,4 @@ P.S.: Make sure everything works with latest version that is on github :)
 
 P.P.S.: Asume that your API will be used by a frontend developer to build frontend on top of that.
 
+... in process
