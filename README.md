@@ -1,9 +1,9 @@
 # REST Voting System for deciding where to have lunch
 
 This application uses:
-* Spring boot
+* Spring Boot, Spring MVC
 * Using Maven to build Spring Project
-* Spring MVC
+* JPA, HSQLDB
 
 ### Task
 Design and implement a REST API using Hibernate/Spring/SpringMVC (or Spring-Boot) without frontend.
