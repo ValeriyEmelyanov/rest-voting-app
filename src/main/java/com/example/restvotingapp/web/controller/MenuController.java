@@ -6,11 +6,15 @@ import com.example.restvotingapp.web.model.MenuRest;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("menus")
@@ -21,17 +25,23 @@ public class MenuController {
 
     @GetMapping(path = "/{date}")
     public List<MenuRest> listByDate(@PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
-        List<MenuRest> returnValue = new ArrayList<>();
-
         List<MenuDto> menus = menuService.listByDate(date);
-
         ModelMapper modelMapper = new ModelMapper();
 
-        for (MenuDto menuDto : menus) {
-            MenuRest menuRest = modelMapper.map(menuDto, MenuRest.class);
-            returnValue.add(menuRest);
-        }
-
-        return returnValue;
+        return menus
+                .stream()
+                .map(menuDto -> modelMapper.map(menuDto, MenuRest.class))
+                .collect(Collectors.toList());
     }
+
+    @GetMapping(path = "/{date}/restaraunt/{restaraunt_id}")
+    public MenuRest getByDateAndRestaraunt(
+            @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
+            @PathVariable Integer restaraunt_id) {
+        ModelMapper modelMapper = new ModelMapper();
+        MenuDto menu = menuService.getByDateAndRestaraunt(date, restaraunt_id);
+
+        return modelMapper.map(menu, MenuRest.class);
+    }
+
 }

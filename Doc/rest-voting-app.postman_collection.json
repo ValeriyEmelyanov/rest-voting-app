@@ -317,6 +317,60 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "GET: menus/2019-01-01",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/menus/2019-01-01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"menus",
+						"2019-01-01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET: menus/2019-01-01/restaraunt/100",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/menus/2019-01-01/restaraunt/100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"menus",
+						"2019-01-01",
+						"restaraunt",
+						"100"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
