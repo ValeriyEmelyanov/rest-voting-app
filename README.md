@@ -3,7 +3,7 @@
 This application uses:
 * Spring Boot, Spring MVC
 * Using Maven to build Spring Project
-* JPA, HSQLDB
+* JPA/Hibernate, HSQLDB
 
 ### Task
 Design and implement a REST API using Hibernate/Spring/SpringMVC (or Spring-Boot) without frontend.

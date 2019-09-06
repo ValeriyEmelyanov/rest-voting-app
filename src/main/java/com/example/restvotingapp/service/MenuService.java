@@ -11,4 +11,8 @@ import java.util.List;
 public interface MenuService {
     List<MenuDto> listByDate(LocalDate date);
     MenuDto getByDateAndRestaraunt(LocalDate date, Integer restaraunt_id);
+    MenuDto getById(Integer id);
+    MenuDto create(MenuDto menuDetails);
+    MenuDto update(Integer id, MenuDto menuDetails);
+    void delete(Integer id);
 }

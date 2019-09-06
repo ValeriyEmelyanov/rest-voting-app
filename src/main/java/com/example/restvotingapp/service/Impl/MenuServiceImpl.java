@@ -1,12 +1,16 @@
 package com.example.restvotingapp.service.Impl;
 
 import com.example.restvotingapp.dto.MenuDto;
+import com.example.restvotingapp.dto.MenuItemDto;
 import com.example.restvotingapp.entity.Menu;
+import com.example.restvotingapp.entity.MenuItem;
 import com.example.restvotingapp.entity.Restaraunt;
+import com.example.restvotingapp.repository.MenuItemRepository;
 import com.example.restvotingapp.repository.MenuRepository;
 import com.example.restvotingapp.repository.RestarauntRepository;
 import com.example.restvotingapp.service.MenuService;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +27,9 @@ public class MenuServiceImpl implements MenuService {
 
     @Autowired
     RestarauntRepository restarauntRepository;
+
+    @Autowired
+    MenuItemRepository itemRepository;
 
     @Override
     public List<MenuDto> listByDate(LocalDate date) {
@@ -43,5 +50,83 @@ public class MenuServiceImpl implements MenuService {
         ModelMapper modelMapper = new ModelMapper();
 
         return modelMapper.map(menuEntity, MenuDto.class);
+    }
+
+    @Override
+    public MenuDto getById(Integer id) {
+        Menu menuEntity = menuRepository.getById(id)
+                .orElseThrow(() -> new RuntimeException("Menu with ID: " + id + " not found"));
+
+        ModelMapper modelMapper = new ModelMapper();
+
+        return modelMapper.map(menuEntity, MenuDto.class);
+    }
+
+    @Override
+    public MenuDto create(MenuDto menuDetails) {
+        // Find restaraunt
+        Integer restaraunt_id = menuDetails.getRestaraunt().getId();
+        Restaraunt restaraunt = restarauntRepository.findById(restaraunt_id)
+                .orElseThrow(() -> new RuntimeException("Restaraunt with ID: " + restaraunt_id + " not found"));
+
+        // Check if menu exist for date and restaraunt
+        if (menuRepository.findByDateAndRestaraunt(menuDetails.getDate(), restaraunt) != null) {
+            throw new RuntimeException("Menu already exists!");
+        }
+
+        // Create new menu
+        Menu menuEntity = new Menu();
+        menuEntity.setRestaraunt(restaraunt);
+        menuEntity.setDate(menuDetails.getDate());
+
+        // Create and set new menu items collections
+        List<MenuItem> items = new ArrayList<>();
+        for (MenuItemDto itemDto : menuDetails.getItems()) {
+            MenuItem itemEntity = new MenuItem();
+            BeanUtils.copyProperties(itemDto, itemEntity, "id,menu");
+            itemEntity.setMenu(menuEntity);
+            items.add(itemEntity);
+        }
+        menuEntity.setItems(items);
+
+        Menu storedMenu = menuRepository.save(menuEntity);
+
+        ModelMapper modelMapper = new ModelMapper();
+
+        return modelMapper.map(storedMenu, MenuDto.class);
+    }
+
+    @Override
+    public MenuDto update(Integer id, MenuDto menuDetails) {
+        // Find menu
+        Menu menuEntity = menuRepository.getById(id)
+                .orElseThrow(() -> new RuntimeException("Menu with ID: " + id + " not found"));
+
+        // Delete old menu items
+        menuEntity.getItems().forEach(item -> itemRepository.deleteById(item.getId()));
+
+        // Create and set new menu items collections
+        List<MenuItem> items = new ArrayList<>();
+        for (MenuItemDto itemDto : menuDetails.getItems()) {
+            MenuItem itemEntity = new MenuItem();
+            BeanUtils.copyProperties(itemDto, itemEntity, "id,menu");
+            itemEntity.setMenu(menuEntity);
+            items.add(itemEntity);
+        }
+        menuEntity.setItems(items);
+
+        Menu updatedMenu = menuRepository.save(menuEntity);
+
+        ModelMapper modelMapper = new ModelMapper();
+
+        return modelMapper.map(updatedMenu, MenuDto.class);
+    }
+
+    @Override
+    public void delete(Integer id) {
+        Menu userEntity = menuRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Menu with ID: " + id + " not found"));
+
+        menuRepository.delete(userEntity);
     }
 }
