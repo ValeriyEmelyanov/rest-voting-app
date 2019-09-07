@@ -418,7 +418,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 104,\r\n    \"restaraunt\": {\r\n        \"id\": 100,\r\n        \"name\": \"Weeping willow\",\r\n        \"active\": true\r\n    },\r\n    \"date\": \"2019-01-03\",\r\n    \"items\": [\r\n        {\r\n            \"id\": 108,\r\n            \"dish\": \"Meal 1 (2019-01-03, Weeping willow)\",\r\n            \"price\": 55.99\r\n        },\r\n        {\r\n            \"id\": 109,\r\n            \"dish\": \"Meal 2 (2019-01-03, Weeping willow)\",\r\n            \"price\": 65.01\r\n        },\r\n        {\r\n            \"id\": 110,\r\n            \"dish\": \"Meal 3 (2019-01-03, Weeping willow)\",\r\n            \"price\": 75.00\r\n        }\r\n    ]\r\n}"
+					"raw": "{\r\n    \"restaraunt\": {\r\n        \"id\": 100\r\n    },\r\n    \"date\": \"2019-01-03\",\r\n    \"items\": [\r\n        {\r\n            \"dish\": \"Meal 1 (2019-01-03, Weeping willow)\",\r\n            \"price\": 55.99\r\n        },\r\n        {\r\n            \"dish\": \"Meal 2 (2019-01-03, Weeping willow)\",\r\n            \"price\": 65.01\r\n        },\r\n        {\r\n            \"dish\": \"Meal 3 (2019-01-03, Weeping willow)\",\r\n            \"price\": 75.00\r\n        }\r\n    ]\r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/menus",
@@ -484,6 +484,33 @@
 					"path": [
 						"menus",
 						"100"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET: votes/date/2019-01-01",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/votes/date/2019-01-01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"votes",
+						"date",
+						"2019-01-01"
 					]
 				}
 			},

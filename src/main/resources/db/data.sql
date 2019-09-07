@@ -32,3 +32,6 @@ INSERT INTO menu_items (id, menu_id, dish, price) VALUES
 (106, 101, 'Meal 3 (2019-01-02, Weeping willow)', 31.00),
 (107, 102, 'Meal 1 (2019-01-01, East)', 1.00);
 
+INSERT INTO votes (id, user_id, menu_id, restaraunt_id, date) VALUES
+(100, 100, 100, 100, '2019-01-01'),
+(101, 101, 100, 100, '2019-01-01');
