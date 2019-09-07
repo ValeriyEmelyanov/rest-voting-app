@@ -42,9 +42,9 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
-    public MenuDto getByDateAndRestaraunt(LocalDate date, Integer restaraunt_id) {
-        Restaraunt restarauntEntity = restarauntRepository.findById(restaraunt_id)
-                .orElseThrow(() -> new RuntimeException("Restaraunt with ID: " + restaraunt_id + " not found"));
+    public MenuDto getByDateAndRestaraunt(LocalDate date, Integer restarauntId) {
+        Restaraunt restarauntEntity = restarauntRepository.findById(restarauntId)
+                .orElseThrow(() -> new RuntimeException("Restaraunt with ID: " + restarauntId + " not found"));
 
         Menu menuEntity = menuRepository.findByDateAndRestaraunt(date, restarauntEntity);
         ModelMapper modelMapper = new ModelMapper();
@@ -65,9 +65,9 @@ public class MenuServiceImpl implements MenuService {
     @Override
     public MenuDto create(MenuDto menuDetails) {
         // Find restaraunt
-        Integer restaraunt_id = menuDetails.getRestaraunt().getId();
-        Restaraunt restaraunt = restarauntRepository.findById(restaraunt_id)
-                .orElseThrow(() -> new RuntimeException("Restaraunt with ID: " + restaraunt_id + " not found"));
+        Integer restarauntId = menuDetails.getRestaraunt().getId();
+        Restaraunt restaraunt = restarauntRepository.findById(restarauntId)
+                .orElseThrow(() -> new RuntimeException("Restaraunt with ID: " + restarauntId + " not found"));
 
         // Check if menu exist for date and restaraunt
         if (menuRepository.findByDateAndRestaraunt(menuDetails.getDate(), restaraunt) != null) {
