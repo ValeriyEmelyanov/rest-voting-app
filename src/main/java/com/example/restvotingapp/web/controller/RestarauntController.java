@@ -2,7 +2,7 @@ package com.example.restvotingapp.web.controller;
 
 import com.example.restvotingapp.dto.RestarauntDto;
 import com.example.restvotingapp.service.RestarauntService;
-import com.example.restvotingapp.web.model.RestarauntRest;
+import com.example.restvotingapp.web.response.RestarauntRest;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

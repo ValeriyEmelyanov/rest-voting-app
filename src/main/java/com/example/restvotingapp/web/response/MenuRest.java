@@ -1,4 +1,4 @@
-package com.example.restvotingapp.web.model;
+package com.example.restvotingapp.web.response;
 
 import java.time.LocalDate;
 import java.util.List;

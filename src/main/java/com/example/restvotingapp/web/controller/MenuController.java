@@ -2,16 +2,14 @@ package com.example.restvotingapp.web.controller;
 
 import com.example.restvotingapp.dto.MenuDto;
 import com.example.restvotingapp.service.MenuService;
-import com.example.restvotingapp.web.model.MenuRest;
+import com.example.restvotingapp.web.response.MenuRest;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 

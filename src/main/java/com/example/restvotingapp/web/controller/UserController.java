@@ -2,7 +2,7 @@ package com.example.restvotingapp.web.controller;
 
 import com.example.restvotingapp.dto.UserDto;
 import com.example.restvotingapp.service.UserService;
-import com.example.restvotingapp.web.model.UserRest;
+import com.example.restvotingapp.web.response.UserRest;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

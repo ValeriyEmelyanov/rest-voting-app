@@ -1,4 +1,4 @@
-package com.example.restvotingapp.web.model;
+package com.example.restvotingapp.web.response;
 
 import java.math.BigDecimal;
 
