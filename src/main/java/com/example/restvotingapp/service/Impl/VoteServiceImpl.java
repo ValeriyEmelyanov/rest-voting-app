@@ -1,5 +1,6 @@
 package com.example.restvotingapp.service.Impl;
 
+import com.example.restvotingapp.dto.MenuWithoutItemsDto;
 import com.example.restvotingapp.dto.VoteDto;
 import com.example.restvotingapp.dto.VotePlainDto;
 import com.example.restvotingapp.entity.Menu;
@@ -11,8 +12,6 @@ import com.example.restvotingapp.repository.RestarauntRepository;
 import com.example.restvotingapp.repository.UserRepository;
 import com.example.restvotingapp.repository.VoteRepository;
 import com.example.restvotingapp.service.VoteServices;
-import com.example.restvotingapp.dto.MenuWithoutItemsDto;
-import com.example.restvotingapp.web.response.VoteRest;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,7 +20,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 
 @Service

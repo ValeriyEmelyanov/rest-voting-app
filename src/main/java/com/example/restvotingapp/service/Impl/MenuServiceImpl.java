@@ -103,7 +103,11 @@ public class MenuServiceImpl implements MenuService {
                 .orElseThrow(() -> new RuntimeException("Menu with ID: " + id + " not found"));
 
         // Delete old menu items
-        menuEntity.getItems().forEach(item -> itemRepository.deleteById(item.getId()));
+        List<MenuItem> itemsToDelete = menuEntity.getItems();
+        menuEntity.setItems(new ArrayList<>());
+        for (MenuItem item : itemsToDelete) {
+            itemRepository.delete(item);
+        }
 
         // Create and set new menu items collections
         List<MenuItem> items = new ArrayList<>();

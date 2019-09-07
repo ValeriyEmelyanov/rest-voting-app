@@ -25,6 +25,7 @@ public class Vote {
 
     @ManyToOne
     @JoinColumn(name = "restaraunt_id")
+    @NotNull
     private Restaraunt restaraunt;
 
     @Column(name = "date", nullable = false, columnDefinition = "timestamp")

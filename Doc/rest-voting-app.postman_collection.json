@@ -17,13 +17,14 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/users",
+					"raw": "http://localhost:8080/rest-voting-app/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"users"
 					]
 				}
@@ -42,13 +43,14 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/users?page=1&limit=20",
+					"raw": "http://localhost:8080/rest-voting-app/users?page=1&limit=20",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"users"
 					],
 					"query": [
@@ -77,13 +79,14 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/users/101",
+					"raw": "http://localhost:8080/rest-voting-app/users/101",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"users",
 						"101"
 					]
@@ -112,13 +115,14 @@
 					"raw": "{\n\t\t\"name\":\"New user\",\n\t\t\"email\":\"NewUser@test.com\",\n\t\t\"password\":\"654321\",\n\t\t\"roles\":[\"ROLE_USER\"]\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/users",
+					"raw": "http://localhost:8080/rest-voting-app/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"users"
 					]
 				}
@@ -146,13 +150,14 @@
 					"raw": "{\r\n    \"name\": \"User updated\",\r\n    \"enabled\": true,\r\n    \"roles\":[\"ROLE_ADMIN\",\"ROLE_USER\"]\r\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/users/101",
+					"raw": "http://localhost:8080/rest-voting-app/users/101",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"users",
 						"101"
 					]
@@ -166,13 +171,14 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/users/101",
+					"raw": "http://localhost:8080/rest-voting-app/users/101",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"users",
 						"101"
 					]
@@ -192,13 +198,14 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/restaraunts",
+					"raw": "http://localhost:8080/rest-voting-app/restaraunts",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"restaraunts"
 					]
 				}
@@ -217,13 +224,14 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/restaraunts/active",
+					"raw": "http://localhost:8080/rest-voting-app/restaraunts/active",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"restaraunts",
 						"active"
 					]
@@ -255,13 +263,14 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8080/restaraunts/101",
+					"raw": "http://localhost:8080/rest-voting-app/restaraunts/101",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"restaraunts",
 						"101"
 					]
@@ -290,13 +299,14 @@
 					"raw": "{\n\t\t\"name\":\"Sogt light\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/restaraunts",
+					"raw": "http://localhost:8080/rest-voting-app/restaraunts",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"restaraunts"
 					]
 				}
@@ -319,13 +329,14 @@
 					"raw": "{\n\t\t\"name\":\"East closed\",\n\t\t\"active\":\"false\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/restaraunts/101",
+					"raw": "http://localhost:8080/rest-voting-app/restaraunts/101",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"restaraunts",
 						"101"
 					]
@@ -339,13 +350,14 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/restaraunts/101",
+					"raw": "http://localhost:8080/rest-voting-app/restaraunts/101",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"restaraunts",
 						"101"
 					]
@@ -365,13 +377,14 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/menus/date/2019-01-01",
+					"raw": "http://localhost:8080/rest-voting-app/menus/date/2019-01-01",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"menus",
 						"date",
 						"2019-01-01"
@@ -392,13 +405,14 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/menus/date/2019-01-01/restaraunt/100",
+					"raw": "http://localhost:8080/rest-voting-app/menus/date/2019-01-01/restaraunt/100",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"menus",
 						"date",
 						"2019-01-01",
@@ -421,13 +435,14 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/menus/100",
+					"raw": "http://localhost:8080/rest-voting-app/menus/100",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"menus",
 						"100"
 					]
@@ -456,13 +471,14 @@
 					"raw": "{\r\n    \"restaraunt\": {\r\n        \"id\": 100\r\n    },\r\n    \"date\": \"2019-01-03\",\r\n    \"items\": [\r\n        {\r\n            \"dish\": \"Meal 1 (2019-01-03, Weeping willow)\",\r\n            \"price\": 55.99\r\n        },\r\n        {\r\n            \"dish\": \"Meal 2 (2019-01-03, Weeping willow)\",\r\n            \"price\": 65.01\r\n        },\r\n        {\r\n            \"dish\": \"Meal 3 (2019-01-03, Weeping willow)\",\r\n            \"price\": 75.00\r\n        }\r\n    ]\r\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/menus",
+					"raw": "http://localhost:8080/rest-voting-app/menus",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"menus"
 					]
 				}
@@ -490,13 +506,14 @@
 					"raw": "{\r\n    \"items\": [\r\n        {\r\n            \"dish\": \"Meal 1 updated\",\r\n            \"price\": 90.99\r\n        },\r\n        {\r\n            \"dish\": \"Meal 2 updated\",\r\n            \"price\": 90.01\r\n        },\r\n        {\r\n            \"dish\": \"Meal 3 updated\",\r\n            \"price\": 90.00\r\n        }\r\n    ]\r\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/menus/100",
+					"raw": "http://localhost:8080/rest-voting-app/menus/100",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"menus",
 						"100"
 					]
@@ -510,13 +527,14 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/menus/100",
+					"raw": "http://localhost:8080/rest-voting-app/menus/100",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"menus",
 						"100"
 					]
@@ -536,13 +554,14 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/votes/date/2019-01-01",
+					"raw": "http://localhost:8080/rest-voting-app/votes/date/2019-01-01",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"votes",
 						"date",
 						"2019-01-01"
@@ -563,13 +582,14 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/votes/date/2019-01-01?page=1&limit=20",
+					"raw": "http://localhost:8080/rest-voting-app/votes/date/2019-01-01?page=1&limit=20",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"votes",
 						"date",
 						"2019-01-01"
@@ -594,13 +614,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/votes/date/2019-01-01/count",
+					"raw": "http://localhost:8080/rest-voting-app/votes/date/2019-01-01/count",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"votes",
 						"date",
 						"2019-01-01",
@@ -616,13 +637,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/votes/date/2019-01-01/count/restaraunt/100",
+					"raw": "http://localhost:8080/rest-voting-app/votes/date/2019-01-01/count/restaraunt/100",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"votes",
 						"date",
 						"2019-01-01",
@@ -655,13 +677,14 @@
 					"raw": "{\n\t\"user\": {\n\t\t\"id\": 101\n\t},\n\t\"menu\": {\n\t\t\"id\": 101\n\t}\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/votes",
+					"raw": "http://localhost:8080/rest-voting-app/votes",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"votes"
 					]
 				}
@@ -669,18 +692,19 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/votes/100",
+			"name": "DELETE: votes/100",
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/votes/100",
+					"raw": "http://localhost:8080/rest-voting-app/votes/100",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"rest-voting-app",
 						"votes",
 						"100"
 					]
