@@ -20,22 +20,38 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @Service
 public class VoteServiceImpl implements VoteServices {
 
-    @Autowired
-    VoteRepository voteRepository;
+    final LocalTime DEAD_LINE_TIME = LocalTime.of(11, 0);
+
+    private VoteRepository voteRepository;
+    private RestarauntRepository restarauntRepository;
+    private UserRepository userRepository;
+    private MenuRepository menuRepository;
 
     @Autowired
-    RestarauntRepository restarauntRepository;
+    public void setVoteRepository(VoteRepository voteRepository) {
+        this.voteRepository = voteRepository;
+    }
 
     @Autowired
-    UserRepository userRepository;
+    public void setRestarauntRepository(RestarauntRepository restarauntRepository) {
+        this.restarauntRepository = restarauntRepository;
+    }
 
     @Autowired
-    MenuRepository menuRepository;
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Autowired
+    public void setMenuRepository(MenuRepository menuRepository) {
+        this.menuRepository = menuRepository;
+    }
 
     @Override
     public List<VotePlainDto> listByDate(LocalDate date, int page, int limit) {
@@ -61,7 +77,9 @@ public class VoteServiceImpl implements VoteServices {
     @Override
     public VoteDto create(VoteDto voteDetails) {
         // Check current time
-        // TODO: Check current time
+        if (LocalTime.now().isAfter(DEAD_LINE_TIME)) {
+            throw new RuntimeException("Voting is impossible after " + DEAD_LINE_TIME);
+        }
 
         // Check if vote for date and user exists
         Integer userId = voteDetails.getUser().getId();
