@@ -9,6 +9,5 @@ import java.util.List;
 
 @Service
 public interface VoteServices {
-//    List<VoteDto> listByDate(LocalDate date);
-    List<VoteRest> listByDate(LocalDate date);
+    List<VoteRest> listByDate(LocalDate date, int page, int limit);
 }

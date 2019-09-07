@@ -7,6 +7,9 @@ import com.example.restvotingapp.service.VoteServices;
 import com.example.restvotingapp.web.response.VoteRest;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -19,18 +22,11 @@ public class VoteServiceImpl implements VoteServices {
     @Autowired
     VoteRepository voteRepository;
 
-//    @Override
-//    public List<VoteDto> listByDate(LocalDate date) {
-//        List<Vote> votes = voteRepository.findAllByDate(date);
-//        ModelMapper modelMapper = new ModelMapper();
-//        return votes
-//                .stream()
-//                .map(vote -> modelMapper.map(vote, VoteDto.class))
-//                .collect(Collectors.toList());
-//    }
-
     @Override
-    public List<VoteRest> listByDate(LocalDate date) {
-        return voteRepository.findAllByDateNative(date);
+    public List<VoteRest> listByDate(LocalDate date, int page, int limit) {
+        Pageable pageableRequest = PageRequest.of(page, limit);
+        Page<VoteRest> votesPage = voteRepository.findAllByDateNative(date, pageableRequest);
+
+        return votesPage.getContent();
     }
 }

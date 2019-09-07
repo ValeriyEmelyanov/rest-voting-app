@@ -31,6 +31,31 @@
 			"response": []
 		},
 		{
+			"name": "GET: users?page=1&limit=20",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "GET: users/101",
 			"request": {
 				"method": "GET",
@@ -511,6 +536,70 @@
 						"votes",
 						"date",
 						"2019-01-01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET: votes/date/2019-01-01?page=1&limit=20",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/votes/date/2019-01-01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"votes",
+						"date",
+						"2019-01-01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET: votes/date/2019-01-01?page=1&limit=20",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/votes/date/2019-01-01?page=1&limit=20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"votes",
+						"date",
+						"2019-01-01"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "20"
+						}
 					]
 				}
 			},

@@ -7,10 +7,7 @@ import com.example.restvotingapp.web.response.VoteRest;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -24,15 +21,10 @@ public class VoteController {
     VoteServices voteServices;
 
     @GetMapping(path = "/date/{date}")
-    List<VoteRest> listByDate(@PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
-//        List<VoteDto> votes = voteServices.listByDate(date);
-//
-//        ModelMapper modelMapper = new ModelMapper();
-//
-//        return votes
-//                .stream()
-//                .map(voteDto -> modelMapper.map(voteDto, VoteRest.class))
-//                .collect(Collectors.toList());
-        return voteServices.listByDate(date);
+    List<VoteRest> listByDate(
+            @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
+            @RequestParam(value = "page", defaultValue = "1") int page,
+            @RequestParam(value = "limit", defaultValue = "25") int limit) {
+        return voteServices.listByDate(date, page - 1, limit);
     }
 }
