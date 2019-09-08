@@ -4,6 +4,8 @@ import com.example.restvotingapp.dto.MenuDto;
 import com.example.restvotingapp.service.MenuService;
 import com.example.restvotingapp.web.response.MenuRest;
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -17,11 +19,19 @@ import java.util.stream.Collectors;
 @RequestMapping("menus")
 public class MenuController {
 
+    private final Logger log = LoggerFactory.getLogger(getClass());
+
+    private MenuService menuService;
+
     @Autowired
-    MenuService menuService;
+    public void setMenuService(MenuService menuService) {
+        this.menuService = menuService;
+    }
 
     @GetMapping(path = "/date/{date}")
     public List<MenuRest> listByDate(@PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
+        log.info("Get menu list for {}", date);
+
         List<MenuDto> menus = menuService.listByDate(date);
         ModelMapper modelMapper = new ModelMapper();
 
@@ -35,11 +45,15 @@ public class MenuController {
     public MenuRest getByDateAndRestaraunt(
             @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
             @PathVariable Integer restaraunt_id) {
+        log.info("Get menu for {} and  restaraunt {}", date, restaraunt_id);
+
         return get(menuService.getByDateAndRestaraunt(date, restaraunt_id));
     }
 
     @GetMapping(path = "/{id}")
     public MenuRest getById(@PathVariable Integer id) {
+        log.info("Get menu {}", id);
+
         return get(menuService.getById(id));
     }
 
@@ -50,6 +64,8 @@ public class MenuController {
 
     @PostMapping
     public MenuRest create(@RequestBody MenuDto menuDetails) {
+        log.info("Greate menu");
+
         MenuDto createdMenu = menuService.create(menuDetails);
         ModelMapper modelMapper = new ModelMapper();
 
@@ -58,6 +74,8 @@ public class MenuController {
 
     @PutMapping(path = "/{id}")
     public MenuRest update(@PathVariable Integer id, @RequestBody MenuDto menuDetails) {
+        log.info("Update menu {}", id);
+
         MenuDto updatedMenu = menuService.update(id, menuDetails);
         ModelMapper modelMapper = new ModelMapper();
 
@@ -67,6 +85,8 @@ public class MenuController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Integer id) {
+        log.info("Delete menu {}", id);
+
         menuService.delete(id);
     }
 }

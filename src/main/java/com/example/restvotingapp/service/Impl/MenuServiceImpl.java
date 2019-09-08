@@ -22,14 +22,24 @@ import java.util.stream.Collectors;
 @Service
 public class MenuServiceImpl implements MenuService {
 
-    @Autowired
-    MenuRepository menuRepository;
+    private MenuRepository menuRepository;
+    private RestarauntRepository restarauntRepository;
+    private MenuItemRepository itemRepository;
 
     @Autowired
-    RestarauntRepository restarauntRepository;
+    public void setMenuRepository(MenuRepository menuRepository) {
+        this.menuRepository = menuRepository;
+    }
 
     @Autowired
-    MenuItemRepository itemRepository;
+    public void setRestarauntRepository(RestarauntRepository restarauntRepository) {
+        this.restarauntRepository = restarauntRepository;
+    }
+
+    @Autowired
+    public void setItemRepository(MenuItemRepository itemRepository) {
+        this.itemRepository = itemRepository;
+    }
 
     @Override
     public List<MenuDto> listByDate(LocalDate date) {

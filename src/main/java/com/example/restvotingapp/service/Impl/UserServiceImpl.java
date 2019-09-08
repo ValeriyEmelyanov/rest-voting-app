@@ -17,8 +17,12 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
+    private UserRepository userRepository;
+
     @Autowired
-    UserRepository userRepository;
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     public List<UserDto> list(int page, int limit) {

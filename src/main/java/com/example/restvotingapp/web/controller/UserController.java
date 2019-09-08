@@ -3,6 +3,8 @@ package com.example.restvotingapp.web.controller;
 import com.example.restvotingapp.dto.UserDto;
 import com.example.restvotingapp.service.UserService;
 import com.example.restvotingapp.web.response.UserRest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,13 +17,21 @@ import java.util.List;
 @RequestMapping("users")
 public class UserController {
 
+    private final Logger log = LoggerFactory.getLogger(getClass());
+
+    private UserService userService;
+
     @Autowired
-    UserService userService;
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping
     public List<UserRest> list(
             @RequestParam(value = "page", defaultValue = "1") int page,
             @RequestParam(value = "limit", defaultValue = "25") int limit) {
+        log.info("Get users list: page {}, limit {}", page, limit);
+
         List<UserRest> returnValue = new ArrayList<>();
         List<UserDto> users = userService.list(page - 1, limit);
 
@@ -36,6 +46,8 @@ public class UserController {
 
     @GetMapping(path = "/{id}")
     public UserRest getById(@PathVariable Integer id) {
+        log.info("Get user {}", id);
+
         UserRest returnValue = new UserRest();
 
         UserDto userDto = userService.getById(id);
@@ -46,6 +58,8 @@ public class UserController {
 
     @PostMapping
     public UserRest create(@RequestBody UserDto userDetails) {
+        log.info("Greate user");
+
         UserRest returnValue = new UserRest();
 
         UserDto createdUser = userService.create(userDetails);
@@ -56,6 +70,8 @@ public class UserController {
 
     @PutMapping(path = "/{id}")
     public UserRest update(@PathVariable Integer id, @RequestBody UserDto userDetails) {
+        log.info("Update user {}", id);
+
         UserRest returnValue = new UserRest();
 
         UserDto updatedUser = userService.update(id, userDetails);
@@ -67,6 +83,8 @@ public class UserController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Integer id) {
+        log.info("Delete user {}", id);
+
         userService.delete(id);
     }
 }

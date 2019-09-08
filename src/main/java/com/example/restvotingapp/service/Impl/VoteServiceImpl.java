@@ -26,7 +26,7 @@ import java.util.List;
 @Service
 public class VoteServiceImpl implements VoteServices {
 
-    final LocalTime DEAD_LINE_TIME = LocalTime.of(11, 0);
+    private final LocalTime DEAD_LINE_TIME = LocalTime.of(11, 0);
 
     private VoteRepository voteRepository;
     private RestarauntRepository restarauntRepository;

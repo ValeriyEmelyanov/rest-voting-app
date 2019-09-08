@@ -18,8 +18,12 @@ import java.util.Optional;
 @Service
 public class RestarauntServiceImpl implements RestarauntService {
 
+    private RestarauntRepository restarauntRepository;
+
     @Autowired
-    RestarauntRepository restarauntRepository;
+    public void setRestarauntRepository(RestarauntRepository restarauntRepository) {
+        this.restarauntRepository = restarauntRepository;
+    }
 
     @Override
     public List<RestarauntDto> list(int page, int limit) {
