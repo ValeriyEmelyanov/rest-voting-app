@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,7 +58,8 @@ public class UserController {
     }
 
     @PostMapping
-    public UserRest create(@RequestBody UserDto userDetails) {
+    @ResponseStatus(value = HttpStatus.CREATED)
+    public UserRest create(@Valid @RequestBody UserDto userDetails) {
         log.info("Greate user");
 
         UserRest returnValue = new UserRest();
