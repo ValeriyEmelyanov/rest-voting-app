@@ -13,6 +13,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional(readOnly = true)
 public class MenuServiceImpl implements MenuService {
 
     private MenuRepository menuRepository;
@@ -73,6 +75,7 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
+    @Transactional
     public MenuDto create(MenuDto menuDetails) {
         // Find restaraunt
         Integer restarauntId = menuDetails.getRestaraunt().getId();
@@ -107,6 +110,7 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
+    @Transactional
     public MenuDto update(Integer id, MenuDto menuDetails) {
         // Find menu
         Menu menuEntity = menuRepository.getById(id)
@@ -137,6 +141,7 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
+    @Transactional
     public void delete(Integer id) {
         Menu userEntity = menuRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Menu with ID: " + id + " not found"));

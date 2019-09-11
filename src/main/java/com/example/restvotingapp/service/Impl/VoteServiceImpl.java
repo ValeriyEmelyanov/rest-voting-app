@@ -18,12 +18,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
 @Service
+@Transactional(readOnly = true)
 public class VoteServiceImpl implements VoteServices {
 
     private final LocalTime DEAD_LINE_TIME = LocalTime.of(11, 0);
@@ -75,6 +77,7 @@ public class VoteServiceImpl implements VoteServices {
     }
 
     @Override
+    @Transactional
     public VoteDto create(VoteDto voteDetails) {
         // Check current time
         if (LocalTime.now().isAfter(DEAD_LINE_TIME)) {
@@ -112,6 +115,7 @@ public class VoteServiceImpl implements VoteServices {
     }
 
     @Override
+    @Transactional
     public void delete(Long id) {
         voteRepository.deleteById(id);
     }

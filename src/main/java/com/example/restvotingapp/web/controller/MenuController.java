@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -17,6 +18,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("menus")
+@Transactional(readOnly = true)
 public class MenuController {
 
     private final Logger log = LoggerFactory.getLogger(getClass());
@@ -63,6 +65,7 @@ public class MenuController {
     }
 
     @PostMapping
+    @Transactional
     public MenuRest create(@RequestBody MenuDto menuDetails) {
         log.info("Greate menu");
 
@@ -73,6 +76,7 @@ public class MenuController {
     }
 
     @PutMapping(path = "/{id}")
+    @Transactional
     public MenuRest update(@PathVariable Integer id, @RequestBody MenuDto menuDetails) {
         log.info("Update menu {}", id);
 
@@ -83,6 +87,7 @@ public class MenuController {
     }
 
     @DeleteMapping("/{id}")
+    @Transactional
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Integer id) {
         log.info("Delete menu {}", id);

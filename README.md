@@ -2,9 +2,9 @@
 
 This application uses:
 * Spring Boot, Spring MVC
-* Using Maven to build Spring Project
-* JPA/Hibernate, HSQLDB (in memory database)
-* Testing with JUnit 5 & Mockito
+* Maven to build Spring Project
+* Data-JPA, HSQLDB (in memory database)
+* Tests with JUnit 5 & Mockito
 
 ### Task
 Design and implement a REST API using Hibernate/Spring/SpringMVC (or Spring-Boot) without frontend.

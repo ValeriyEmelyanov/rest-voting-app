@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -16,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("users")
+@Transactional(readOnly = true)
 public class UserController {
 
     private final Logger log = LoggerFactory.getLogger(getClass());
@@ -58,6 +60,7 @@ public class UserController {
     }
 
     @PostMapping
+    @Transactional
     @ResponseStatus(value = HttpStatus.CREATED)
     public UserRest create(@Valid @RequestBody UserDto userDetails) {
         log.info("Greate user");
@@ -71,6 +74,7 @@ public class UserController {
     }
 
     @PutMapping(path = "/{id}")
+    @Transactional
     public UserRest update(@PathVariable Integer id, @RequestBody UserDto userDetails) {
         log.info("Update user {}", id);
 
@@ -83,6 +87,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
+    @Transactional
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Integer id) {
         log.info("Delete user {}", id);

@@ -10,12 +10,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional(readOnly = true)
 public class RestarauntServiceImpl implements RestarauntService {
 
     private RestarauntRepository restarauntRepository;
@@ -75,6 +77,7 @@ public class RestarauntServiceImpl implements RestarauntService {
     }
 
     @Override
+    @Transactional
     public RestarauntDto create(RestarauntDto restarauntDetails) {
         if (restarauntRepository.findByName(restarauntDetails.getName()) != null) {
             throw new RuntimeException("Restaraunt already exists!");
@@ -92,6 +95,7 @@ public class RestarauntServiceImpl implements RestarauntService {
     }
 
     @Override
+    @Transactional
     public RestarauntDto update(Integer id, RestarauntDto restarauntDetails) {
         Restaraunt restarauntEntity = restarauntRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Restaraunt with ID: " + id + " not found"));
@@ -107,6 +111,7 @@ public class RestarauntServiceImpl implements RestarauntService {
     }
 
     @Override
+    @Transactional
     public void delete(Integer id) {
         Restaraunt userEntity = restarauntRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Restaraunt with ID: " + id + " not found"));

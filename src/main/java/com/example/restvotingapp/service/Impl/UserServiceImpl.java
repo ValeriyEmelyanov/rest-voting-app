@@ -10,11 +10,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Transactional(readOnly = true)
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
@@ -42,6 +44,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public UserDto create(UserDto user) {
         if (userRepository.findByEmail(user.getEmail()) != null) {
             throw new RuntimeException("User already exists!");
@@ -84,6 +87,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public UserDto update(Integer id, UserDto user) {
         User userEntity = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User with ID: " + id + " not found"));
@@ -100,6 +104,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void delete(Integer id) {
         User userEntity = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User with ID: " + id + " not found"));

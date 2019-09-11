@@ -609,7 +609,7 @@
 			"response": []
 		},
 		{
-			"name": "GET: votes/date/2019-01-02/count",
+			"name": "GET: votes/date/2019-01-01/count",
 			"request": {
 				"method": "GET",
 				"header": [],

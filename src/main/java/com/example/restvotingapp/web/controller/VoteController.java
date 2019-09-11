@@ -10,6 +10,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -18,6 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("votes")
+@Transactional(readOnly = true)
 public class VoteController {
 
     private final Logger log = LoggerFactory.getLogger(getClass());
@@ -65,6 +67,7 @@ public class VoteController {
     }
 
     @PostMapping
+    @Transactional
     VoteRest create(@RequestBody VoteDto voteDetails) {
         log.info("Create vote");
 
@@ -82,6 +85,7 @@ public class VoteController {
     }
 
     @DeleteMapping("/{id}")
+    @Transactional
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
         log.info("Delete vote {}", id);
