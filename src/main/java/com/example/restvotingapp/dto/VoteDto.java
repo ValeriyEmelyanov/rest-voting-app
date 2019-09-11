@@ -3,8 +3,8 @@ package com.example.restvotingapp.dto;
 import com.example.restvotingapp.entity.Menu;
 import com.example.restvotingapp.entity.Restaraunt;
 import com.example.restvotingapp.entity.User;
-import org.jetbrains.annotations.NotNull;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public class VoteDto {
