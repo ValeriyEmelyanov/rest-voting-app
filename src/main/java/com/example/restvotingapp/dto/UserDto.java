@@ -36,18 +36,6 @@ public class UserDto {
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
-    public UserDto() {
-    }
-
-    public UserDto(Integer id, String name, String email, String password, Date registered, boolean enabled) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.registered = registered;
-        this.enabled = enabled;
-    }
-
     public Integer getId() {
         return id;
     }

@@ -1,0 +1,3 @@
+password   encrypted password
+admin      $2a$10$hxsFkGIrkQ7BnaDDVHE2P.C43Diz9od9jE6UXUZpgzQo2OFaM0eMm
+password   $2a$10$esmANzQePR/Mkc2yZXB.6.kd4qHdGf3B1HQ.WHcKPzqkzXqSv.BN6

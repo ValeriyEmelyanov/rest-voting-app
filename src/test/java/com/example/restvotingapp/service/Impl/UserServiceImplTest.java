@@ -11,7 +11,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -37,7 +36,7 @@ class UserServiceImplTest {
         userEntity.setName("User");
         userEntity.setEmail("user@test.com");
         userEntity.setEnabled(true);
-        userEntity.setPassword("password");
+        userEntity.setEncryptedPassword("password");
         roles = new HashSet<>();
         roles.add(Role.ROLE_USER);
         userEntity.setRoles(roles);
@@ -54,7 +53,7 @@ class UserServiceImplTest {
         assertEquals(userEntity.getId(), userDto.getId());
         assertEquals(userEntity.getName(), userDto.getName());
         assertEquals(userEntity.getEmail(), userDto.getEmail());
-        assertEquals(userEntity.getPassword(), userDto.getPassword());
+        assertEquals(userEntity.getEncryptedPassword(), userDto.getPassword());
         assertEquals(userEntity.isEnabled(), userDto.isEnabled());
         assertEquals(roles.size(), userDto.getRoles().size());
     }
@@ -78,7 +77,7 @@ class UserServiceImplTest {
         assertNotNull(userDto.getId());
         assertEquals(userEntity.getName(), userDto.getName());
         assertEquals(userEntity.getEmail(), userDto.getEmail());
-        assertEquals(userEntity.getPassword(), userDto.getPassword());
+        assertEquals(userEntity.getEncryptedPassword(), userDto.getPassword());
         assertEquals(userEntity.isEnabled(), userDto.isEnabled());
         assertEquals(roles.size(), userDto.getRoles().size());
     }

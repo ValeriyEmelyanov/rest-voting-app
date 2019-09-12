@@ -4,9 +4,9 @@ DELETE FROM restaraunts;
 DELETE FROM menu_items;
 DELETE FROM menus;
 
-INSERT INTO users (id, name, email, password) VALUES
-    (100, 'Admin', 'admin@gmail.com', 'admin'),
-    (101, 'User', 'user@yandex.ru', 'password');
+INSERT INTO users (id, name, email, encrypted_password) VALUES
+    (100, 'Admin', 'admin@gmail.com', '$2a$10$hxsFkGIrkQ7BnaDDVHE2P.C43Diz9od9jE6UXUZpgzQo2OFaM0eMm'),
+    (101, 'User', 'user@yandex.ru', '$2a$10$esmANzQePR/Mkc2yZXB.6.kd4qHdGf3B1HQ.WHcKPzqkzXqSv.BN6');
 
 INSERT INTO user_roles (role, user_id) VALUES
     ('ROLE_ADMIN', 100),

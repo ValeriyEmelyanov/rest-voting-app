@@ -6,10 +6,52 @@
 	},
 	"item": [
 		{
+			"name": "POST: users/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\t\"email\":\"admin@gmail.com\",\n\t\t\"password\":\"admin\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest-voting-app/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest-voting-app",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "GET: users",
 			"request": {
 				"method": "GET",
 				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
+						"description": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTU1MDB9.HbV9zHijwtOaGHUZb9Dw1R-ahkE4ajX4tFhl8KSehSXRM1uskcBWPcbeiyD6ylF-nbs8tZcZRXr8kl5MxJJAHQ",
+						"type": "text"
+					},
 					{
 						"key": "Accept",
 						"value": "application/json",
@@ -40,6 +82,11 @@
 						"key": "Accept",
 						"type": "text",
 						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
+						"type": "text"
 					}
 				],
 				"url": {
@@ -76,6 +123,11 @@
 						"key": "Accept",
 						"value": "application/json",
 						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
+						"type": "text"
 					}
 				],
 				"url": {
@@ -107,6 +159,11 @@
 					{
 						"key": "Accept",
 						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
 						"type": "text"
 					}
 				],
@@ -143,6 +200,11 @@
 						"key": "Accept",
 						"value": "application/json",
 						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
+						"type": "text"
 					}
 				],
 				"body": {
@@ -169,7 +231,13 @@
 			"name": "DELETE: users/101",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:8080/rest-voting-app/users/101",
 					"protocol": "http",
@@ -194,6 +262,11 @@
 					{
 						"key": "Accept",
 						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
 						"type": "text"
 					}
 				],
@@ -221,6 +294,11 @@
 						"key": "Accept",
 						"type": "text",
 						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
+						"type": "text"
 					}
 				],
 				"url": {
@@ -322,6 +400,11 @@
 						"key": "Content-Type",
 						"value": "application/json",
 						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
+						"type": "text"
 					}
 				],
 				"body": {
@@ -348,7 +431,13 @@
 			"name": "DELETE: restaraunts/101",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:8080/rest-voting-app/restaraunts/101",
 					"protocol": "http",
@@ -373,6 +462,11 @@
 					{
 						"key": "Accept",
 						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
 						"type": "text"
 					}
 				],
@@ -401,6 +495,11 @@
 					{
 						"key": "Accept",
 						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
 						"type": "text"
 					}
 				],
@@ -431,6 +530,11 @@
 					{
 						"key": "Accept",
 						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
 						"type": "text"
 					}
 				],
@@ -463,6 +567,11 @@
 					{
 						"key": "Accept",
 						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
 						"type": "text"
 					}
 				],
@@ -499,6 +608,11 @@
 						"key": "Accept",
 						"value": "application/json",
 						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
+						"type": "text"
 					}
 				],
 				"body": {
@@ -525,7 +639,13 @@
 			"name": "DELETE: menus/100",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:8080/rest-voting-app/menus/100",
 					"protocol": "http",
@@ -550,6 +670,11 @@
 					{
 						"key": "Accept",
 						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
 						"type": "text"
 					}
 				],
@@ -579,6 +704,11 @@
 						"key": "Accept",
 						"type": "text",
 						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
+						"type": "text"
 					}
 				],
 				"url": {
@@ -612,7 +742,13 @@
 			"name": "GET: votes/date/2019-01-01/count",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:8080/rest-voting-app/votes/date/2019-01-01/count",
 					"protocol": "http",
@@ -635,7 +771,13 @@
 			"name": "GET: votes/date/2019-01-01/count/restaraunt/100",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:8080/rest-voting-app/votes/date/2019-01-01/count/restaraunt/100",
 					"protocol": "http",
@@ -670,6 +812,11 @@
 						"key": "Accept",
 						"value": "application/json",
 						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
+						"type": "text"
 					}
 				],
 				"body": {
@@ -695,7 +842,13 @@
 			"name": "DELETE: votes/100",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:8080/rest-voting-app/votes/100",
 					"protocol": "http",

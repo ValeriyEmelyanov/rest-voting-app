@@ -23,10 +23,9 @@ public class User extends AbstractBaseEntity {
     @Size(max = 255)
     private String email;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "encrypted_password", nullable = false)
     @NotBlank
-    @Size(min = 5, max = 255)
-    private String password;
+    private String encryptedPassword;
 
     @Column(name = "registered", nullable = false, columnDefinition = "timestamp default now()")
     @NotNull
@@ -40,26 +39,6 @@ public class User extends AbstractBaseEntity {
     @Column(name = "role")
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<Role> roles;
-
-    public User() {
-    }
-
-    public User(
-            Integer id,
-            String name,
-            String email,
-            String password,
-            Date registered,
-            boolean enabled,
-            Set<Role> roles) {
-        super(id);
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.registered = registered;
-        this.enabled = enabled;
-        this.roles = roles;
-    }
 
     public String getName() {
         return name;
@@ -77,12 +56,12 @@ public class User extends AbstractBaseEntity {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getEncryptedPassword() {
+        return encryptedPassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setEncryptedPassword(String encryptedPassword) {
+        this.encryptedPassword = encryptedPassword;
     }
 
     public Date getRegistered() {
@@ -115,7 +94,7 @@ public class User extends AbstractBaseEntity {
                 "id=" + id +
                 "name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
+                //", encryptedPassword='" + encryptedPassword + '\'' +
                 ", registered=" + registered +
                 ", enabled=" + enabled +
                 ", roles=" + roles +
