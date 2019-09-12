@@ -76,9 +76,7 @@ class UserServiceImplTest {
         when(bCryptPasswordEncoder.encode(anyString())).thenReturn(encryptedPassword);
         when(userRepository.save(any(User.class))).thenReturn(userEntity);
 
-        UserDto user = new UserDto();
-        user.setPassword("password");
-        UserDto userDto = userService.create(user);
+        UserDto userDto = userService.create(new UserDto());
 
         assertNotNull(userDto);
         assertNotNull(userDto.getId());
