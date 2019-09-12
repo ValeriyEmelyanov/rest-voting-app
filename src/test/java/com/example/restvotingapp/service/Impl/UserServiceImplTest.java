@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -24,8 +25,12 @@ class UserServiceImplTest {
     @Mock
     private UserRepository userRepository;
 
+    @Mock
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
     private User userEntity;
     private Set<Role> roles;
+    private String encryptedPassword = "password";
 
     @BeforeEach
     void setUp() throws Exception {
@@ -36,7 +41,7 @@ class UserServiceImplTest {
         userEntity.setName("User");
         userEntity.setEmail("user@test.com");
         userEntity.setEnabled(true);
-        userEntity.setEncryptedPassword("password");
+        userEntity.setEncryptedPassword(encryptedPassword);
         roles = new HashSet<>();
         roles.add(Role.ROLE_USER);
         userEntity.setRoles(roles);
@@ -53,7 +58,6 @@ class UserServiceImplTest {
         assertEquals(userEntity.getId(), userDto.getId());
         assertEquals(userEntity.getName(), userDto.getName());
         assertEquals(userEntity.getEmail(), userDto.getEmail());
-        assertEquals(userEntity.getEncryptedPassword(), userDto.getPassword());
         assertEquals(userEntity.isEnabled(), userDto.isEnabled());
         assertEquals(roles.size(), userDto.getRoles().size());
     }
@@ -69,15 +73,17 @@ class UserServiceImplTest {
     @Test
     void create() {
         when(userRepository.findByEmail(anyString())).thenReturn(null);
+        when(bCryptPasswordEncoder.encode(anyString())).thenReturn(encryptedPassword);
         when(userRepository.save(any(User.class))).thenReturn(userEntity);
 
-        UserDto userDto = userService.create(new UserDto());
+        UserDto user = new UserDto();
+        user.setPassword("password");
+        UserDto userDto = userService.create(user);
 
         assertNotNull(userDto);
         assertNotNull(userDto.getId());
         assertEquals(userEntity.getName(), userDto.getName());
         assertEquals(userEntity.getEmail(), userDto.getEmail());
-        assertEquals(userEntity.getEncryptedPassword(), userDto.getPassword());
         assertEquals(userEntity.isEnabled(), userDto.isEnabled());
         assertEquals(roles.size(), userDto.getRoles().size());
     }
