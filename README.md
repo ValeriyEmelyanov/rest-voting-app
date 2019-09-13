@@ -32,3 +32,14 @@ P.S.: Make sure everything works with latest version that is on github :)
 P.P.S.: Asume that your API will be used by a frontend developer to build frontend on top of that.
 
 ... in process
+
+### Usefull references
+* Databases
+  * <a href="http://deskbook.info/hibernate/annotations/2-annotation-jpa.html">Аннотации JPA</a>
+* Security
+  * <a href="https://stackoverflow.com/questions/19525380/difference-between-role-and-grantedauthority-in-spring-security">Difference between Role and GrantedAuthority in Spring Security</a>
+  * <a href="https://o7planning.org/ru/11705/create-a-login-application-with-spring-boot-spring-security-jpa">Создайте приложение для входа с Spring Boot, Spring Security, JPA</a>
+  * <a href="https://stackoverflow.com/questions/30819337/multiple-antmatchers-in-spring-security">Multiple antMatchers in Spring security</a>
+* Assurance
+  * <a href="http://appsdeveloperblog.com/tag/rest-assured/">REST-assured</a>
+  * <a href=""></a>

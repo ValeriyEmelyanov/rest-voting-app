@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "POST: users/login",
+			"name": "POST: users/login (Admin)",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -24,6 +24,42 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\t\"email\":\"admin@gmail.com\",\n\t\t\"password\":\"admin\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest-voting-app/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest-voting-app",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST: users/login (User)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\t\"email\":\"user@yandex.ru\",\n\t\t\"password\":\"password\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/rest-voting-app/users/login",
@@ -163,7 +199,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg0OTI0NjV9.aqPJJtS1GbapmzDqKNkorz_0R1NZNm5QcFsQuPsXjxSA1Jw1AZHaMO-dnyutxZl3tF3YyhUmz1lxRALoqic2xA",
 						"type": "text"
 					}
 				],
@@ -674,7 +710,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg0ODYxMjl9.N62YhjSxFiiaKl2W_e5Rix1yYIHcI2P5xMbSiFCQZ9f9kmZzZHfQc3JOzGbJrAwXbyypc-z5FQIbKokf1xMQSQ",
 						"type": "text"
 					}
 				],

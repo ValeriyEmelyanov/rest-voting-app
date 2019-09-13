@@ -94,7 +94,6 @@ public class User extends AbstractBaseEntity {
                 "id=" + id +
                 "name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                //", encryptedPassword='" + encryptedPassword + '\'' +
                 ", registered=" + registered +
                 ", enabled=" + enabled +
                 ", roles=" + roles +

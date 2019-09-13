@@ -38,7 +38,6 @@ class UserControllerTest {
     private MockMvc mockMvc;
 
     private UserDto userDto;
-    private Set<Role> roles;
 
     @BeforeEach
     void setUp() {
@@ -46,14 +45,14 @@ class UserControllerTest {
         mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
 
         userDto = new UserDto();
-        userDto.setId(100);
+        userDto.setId(101);
         userDto.setName("User");
         userDto.setEmail("user@test.com");
         userDto.setEnabled(true);
         userDto.setPassword("password");
-        roles = new HashSet<>();
-        roles.add(Role.ROLE_USER);
-        userDto.setRoles(roles);
+        Set<Role> userRoles = new HashSet<>();
+        userRoles.add(Role.ROLE_USER);
+        userDto.setRoles(userRoles);
     }
 
     @Test
