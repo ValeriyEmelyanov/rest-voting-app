@@ -7,21 +7,21 @@ public class VotePlainDto {
     private Integer userId;
     private String userName;
     private Integer menuId;
-    private Integer restarauntId;
-    private String restarauntName;
+    private Integer restaurantId;
+    private String restaurantName;
     private LocalDate date;
 
     public VotePlainDto() {
     }
 
     public VotePlainDto(Long id, Integer userId, String userName, Integer menuId,
-                        Integer restarauntId, String restarauntName, LocalDate date) {
+                        Integer restaurantId, String restaurantName, LocalDate date) {
         this.id = id;
         this.userId = userId;
         this.userName = userName;
         this.menuId = menuId;
-        this.restarauntId = restarauntId;
-        this.restarauntName = restarauntName;
+        this.restaurantId = restaurantId;
+        this.restaurantName = restaurantName;
         this.date = date;
     }
 
@@ -57,20 +57,20 @@ public class VotePlainDto {
         this.menuId = menuId;
     }
 
-    public Integer getRestarauntId() {
-        return restarauntId;
+    public Integer getRestaurantId() {
+        return restaurantId;
     }
 
-    public void setRestarauntId(Integer restarauntId) {
-        this.restarauntId = restarauntId;
+    public void setRestaurantId(Integer restaurantId) {
+        this.restaurantId = restaurantId;
     }
 
-    public String getRestarauntName() {
-        return restarauntName;
+    public String getRestaurantName() {
+        return restaurantName;
     }
 
-    public void setRestarauntName(String restarauntName) {
-        this.restarauntName = restarauntName;
+    public void setRestaurantName(String restaurantName) {
+        this.restaurantName = restaurantName;
     }
 
     public LocalDate getDate() {

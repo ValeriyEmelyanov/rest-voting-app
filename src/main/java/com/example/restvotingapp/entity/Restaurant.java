@@ -8,8 +8,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="restaraunts", uniqueConstraints = {@UniqueConstraint(columnNames = "name", name = "restaraunt_name_idx")})
-public class Restaraunt extends AbstractBaseEntity {
+@Table(name="restaurants", uniqueConstraints = {@UniqueConstraint(columnNames = "name", name = "restaurant_name_idx")})
+public class Restaurant extends AbstractBaseEntity {
 
     @Column(name = "name", nullable = false, unique = true)
     @NotBlank

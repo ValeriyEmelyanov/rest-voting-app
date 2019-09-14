@@ -4,10 +4,10 @@ import com.example.restvotingapp.dto.MenuDto;
 import com.example.restvotingapp.dto.MenuItemDto;
 import com.example.restvotingapp.entity.Menu;
 import com.example.restvotingapp.entity.MenuItem;
-import com.example.restvotingapp.entity.Restaraunt;
+import com.example.restvotingapp.entity.Restaurant;
 import com.example.restvotingapp.repository.MenuItemRepository;
 import com.example.restvotingapp.repository.MenuRepository;
-import com.example.restvotingapp.repository.RestarauntRepository;
+import com.example.restvotingapp.repository.RestaurantRepository;
 import com.example.restvotingapp.service.MenuService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 public class MenuServiceImpl implements MenuService {
 
     private MenuRepository menuRepository;
-    private RestarauntRepository restarauntRepository;
+    private RestaurantRepository restaurantRepository;
     private MenuItemRepository itemRepository;
 
     @Autowired
@@ -34,8 +34,8 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Autowired
-    public void setRestarauntRepository(RestarauntRepository restarauntRepository) {
-        this.restarauntRepository = restarauntRepository;
+    public void setRestaurantRepository(RestaurantRepository restaurantRepository) {
+        this.restaurantRepository = restaurantRepository;
     }
 
     @Autowired
@@ -54,11 +54,11 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
-    public MenuDto getByDateAndRestaraunt(LocalDate date, Integer restarauntId) {
-        Restaraunt restarauntEntity = restarauntRepository.findById(restarauntId)
-                .orElseThrow(() -> new RuntimeException("Restaraunt with ID: " + restarauntId + " not found"));
+    public MenuDto getByDateAndRestaurant(LocalDate date, Integer restaurant_id) {
+        Restaurant restaurantEntity = restaurantRepository.findById(restaurant_id)
+                .orElseThrow(() -> new RuntimeException("Restaurant with ID: " + restaurant_id + " not found"));
 
-        Menu menuEntity = menuRepository.findByDateAndRestaraunt(date, restarauntEntity);
+        Menu menuEntity = menuRepository.findByDateAndRestaurant(date, restaurantEntity);
         ModelMapper modelMapper = new ModelMapper();
 
         return modelMapper.map(menuEntity, MenuDto.class);
@@ -77,19 +77,19 @@ public class MenuServiceImpl implements MenuService {
     @Override
     @Transactional
     public MenuDto create(MenuDto menuDetails) {
-        // Find restaraunt
-        Integer restarauntId = menuDetails.getRestaraunt().getId();
-        Restaraunt restaraunt = restarauntRepository.findById(restarauntId)
-                .orElseThrow(() -> new RuntimeException("Restaraunt with ID: " + restarauntId + " not found"));
+        // Find restaurant
+        Integer restaurantId = menuDetails.getRestaurant().getId();
+        Restaurant restaurant = restaurantRepository.findById(restaurantId)
+                .orElseThrow(() -> new RuntimeException("Restaurant with ID: " + restaurantId + " not found"));
 
-        // Check if menu exist for date and restaraunt
-        if (menuRepository.findByDateAndRestaraunt(menuDetails.getDate(), restaraunt) != null) {
+        // Check if menu exist for date and restaurant
+        if (menuRepository.findByDateAndRestaurant(menuDetails.getDate(), restaurant) != null) {
             throw new RuntimeException("Menu already exists!");
         }
 
         // Create new menu
         Menu menuEntity = new Menu();
-        menuEntity.setRestaraunt(restaraunt);
+        menuEntity.setRestaurant(restaurant);
         menuEntity.setDate(menuDetails.getDate());
 
         // Create and set new menu items collections

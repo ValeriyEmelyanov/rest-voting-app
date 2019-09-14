@@ -6,13 +6,13 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name="menus", uniqueConstraints = {@UniqueConstraint(columnNames = {"restaraunt_id", "date"},
-        name = "menu_restaraunt_date_idx")})
+@Table(name="menus", uniqueConstraints = {@UniqueConstraint(columnNames = {"restaurant_id", "date"},
+        name = "menu_restaurant_date_idx")})
 public class Menu extends AbstractBaseEntity {
 
     @ManyToOne
-    @JoinColumn(name = "restaraunt_id")
-    private Restaraunt restaraunt;
+    @JoinColumn(name = "restaurant_id")
+    private Restaurant restaurant;
 
     @Column(name = "date", nullable = false, columnDefinition = "timestamp")
     @NotNull
@@ -21,12 +21,12 @@ public class Menu extends AbstractBaseEntity {
     @OneToMany(mappedBy = "menu", cascade = CascadeType.ALL)
     private List<MenuItem> items;
 
-    public Restaraunt getRestaraunt() {
-        return restaraunt;
+    public Restaurant getRestaurant() {
+        return restaurant;
     }
 
-    public void setRestaraunt(Restaraunt restaraunt) {
-        this.restaraunt = restaraunt;
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 
     public LocalDate getDate() {

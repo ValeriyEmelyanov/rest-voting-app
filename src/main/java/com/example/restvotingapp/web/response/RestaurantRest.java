@@ -1,6 +1,6 @@
 package com.example.restvotingapp.web.response;
 
-public class RestarauntRest {
+public class RestaurantRest {
     private Integer id;
     private String name;
     private boolean active;

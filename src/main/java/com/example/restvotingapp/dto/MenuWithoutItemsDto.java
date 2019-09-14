@@ -1,20 +1,20 @@
 package com.example.restvotingapp.dto;
 
-import com.example.restvotingapp.entity.Restaraunt;
+import com.example.restvotingapp.entity.Restaurant;
 
 import java.time.LocalDate;
 
 public class MenuWithoutItemsDto {
     private Integer id;
-    private Restaraunt restaraunt;
+    private Restaurant restaurant;
     private LocalDate date;
 
     public MenuWithoutItemsDto() {
     }
 
-    public MenuWithoutItemsDto(Integer id, Restaraunt restaraunt, LocalDate date) {
+    public MenuWithoutItemsDto(Integer id, Restaurant restaurant, LocalDate date) {
         this.id = id;
-        this.restaraunt = restaraunt;
+        this.restaurant = restaurant;
         this.date = date;
     }
 
@@ -26,12 +26,12 @@ public class MenuWithoutItemsDto {
         this.id = id;
     }
 
-    public Restaraunt getRestaraunt() {
-        return restaraunt;
+    public Restaurant getRestaurant() {
+        return restaurant;
     }
 
-    public void setRestaraunt(Restaraunt restaraunt) {
-        this.restaraunt = restaraunt;
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 
     public LocalDate getDate() {

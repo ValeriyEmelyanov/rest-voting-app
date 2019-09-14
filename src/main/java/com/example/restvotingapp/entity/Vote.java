@@ -1,7 +1,5 @@
 package com.example.restvotingapp.entity;
 
-import org.hibernate.Hibernate;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
@@ -24,9 +22,9 @@ public class Vote {
     private Menu menu;
 
     @ManyToOne
-    @JoinColumn(name = "restaraunt_id")
+    @JoinColumn(name = "restaurant_id")
     @NotNull
-    private Restaraunt restaraunt;
+    private Restaurant restaurant;
 
     @Column(name = "date", nullable = false, columnDefinition = "timestamp")
     @NotNull
@@ -56,12 +54,12 @@ public class Vote {
         this.menu = menu;
     }
 
-    public Restaraunt getRestaraunt() {
-        return restaraunt;
+    public Restaurant getRestaurant() {
+        return restaurant;
     }
 
-    public void setRestaraunt(Restaraunt restaraunt) {
-        this.restaraunt = restaraunt;
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 
     public LocalDate getDate() {

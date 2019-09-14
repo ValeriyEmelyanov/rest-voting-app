@@ -4,11 +4,11 @@ import com.example.restvotingapp.dto.MenuWithoutItemsDto;
 import com.example.restvotingapp.dto.VoteDto;
 import com.example.restvotingapp.dto.VotePlainDto;
 import com.example.restvotingapp.entity.Menu;
-import com.example.restvotingapp.entity.Restaraunt;
+import com.example.restvotingapp.entity.Restaurant;
 import com.example.restvotingapp.entity.User;
 import com.example.restvotingapp.entity.Vote;
 import com.example.restvotingapp.repository.MenuRepository;
-import com.example.restvotingapp.repository.RestarauntRepository;
+import com.example.restvotingapp.repository.RestaurantRepository;
 import com.example.restvotingapp.repository.UserRepository;
 import com.example.restvotingapp.repository.VoteRepository;
 import com.example.restvotingapp.service.VoteServices;
@@ -31,7 +31,7 @@ public class VoteServiceImpl implements VoteServices {
     private final LocalTime DEAD_LINE_TIME = LocalTime.of(11, 0);
 
     private VoteRepository voteRepository;
-    private RestarauntRepository restarauntRepository;
+    private RestaurantRepository restaurantRepository;
     private UserRepository userRepository;
     private MenuRepository menuRepository;
 
@@ -41,8 +41,8 @@ public class VoteServiceImpl implements VoteServices {
     }
 
     @Autowired
-    public void setRestarauntRepository(RestarauntRepository restarauntRepository) {
-        this.restarauntRepository = restarauntRepository;
+    public void setRestaurantRepository(RestaurantRepository restaurantRepository) {
+        this.restaurantRepository = restaurantRepository;
     }
 
     @Autowired
@@ -69,11 +69,11 @@ public class VoteServiceImpl implements VoteServices {
     }
 
     @Override
-    public int countAllByDateAndRestaraunt(LocalDate date, int restarauntId) {
-        Restaraunt restarauntEntity = restarauntRepository.findById(restarauntId)
-                .orElseThrow(() -> new RuntimeException("Restaraunt with ID: " + restarauntId + " not found"));
+    public int countAllByDateAndRestaurant(LocalDate date, int restaurantId) {
+        Restaurant restaurantEntity = restaurantRepository.findById(restaurantId)
+                .orElseThrow(() -> new RuntimeException("Restaurant with ID: " + restaurantId + " not found"));
 
-        return voteRepository.countAllByDateAndRestaraunt(date, restarauntEntity);
+        return voteRepository.countAllByDateAndRestaurant(date, restaurantEntity);
     }
 
     @Override
@@ -106,7 +106,7 @@ public class VoteServiceImpl implements VoteServices {
         Vote voteEntity = new Vote();
         voteEntity.setUser(userEntity);
         voteEntity.setMenu(menuEntity);
-        voteEntity.setRestaraunt(menuEntity.getRestaraunt());
+        voteEntity.setRestaurant(menuEntity.getRestaurant());
         voteEntity.setDate(menuEntity.getDate());
 
         Vote voteStored = voteRepository.save(voteEntity);

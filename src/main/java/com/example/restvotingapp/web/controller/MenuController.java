@@ -43,13 +43,13 @@ public class MenuController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping(path = "/date/{date}/restaraunt/{restaraunt_id}")
-    public MenuRest getByDateAndRestaraunt(
+    @GetMapping(path = "/date/{date}/restaurant/{restaurant_id}")
+    public MenuRest getByDateAndRestaurant(
             @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
-            @PathVariable Integer restaraunt_id) {
-        log.info("Get menu for {} and  restaraunt {}", date, restaraunt_id);
+            @PathVariable Integer restaurant_id) {
+        log.info("Get menu for {} and  restaurant {}", date, restaurant_id);
 
-        return get(menuService.getByDateAndRestaraunt(date, restaraunt_id));
+        return get(menuService.getByDateAndRestaurant(date, restaurant_id));
     }
 
     @GetMapping(path = "/{id}")

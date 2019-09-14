@@ -36,8 +36,8 @@ P.P.S.: Asume that your API will be used by a frontend developer to build fronte
 #### Concise description
 * To use the REST service API user have to be authenticated with email and password
 * 2 types of users: admin and regular users
-* Admin has full access to users, restaraunts, menus and votes
-* Regular user can read restaraunts, menus and has full access to vores
+* Admin has full access to users, restaurants, menus and votes
+* Regular user can read restaurants, menus and has full access to vores
 * Regular users can vote on which restaurant they want to have lunch at once a day
 * If user votes again the same day: 
   * If it is before 11:00 we asume that he changed his mind

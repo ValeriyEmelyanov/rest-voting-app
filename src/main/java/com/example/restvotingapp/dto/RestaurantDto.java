@@ -3,7 +3,7 @@ package com.example.restvotingapp.dto;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-public class RestarauntDto {
+public class RestaurantDto {
 
     private Integer id;
 
@@ -13,10 +13,10 @@ public class RestarauntDto {
 
     private boolean active = true;
 
-    public RestarauntDto() {
+    public RestaurantDto() {
     }
 
-    public RestarauntDto(Integer id, @NotBlank @Size(min = 2, max = 255) String name, boolean active) {
+    public RestaurantDto(Integer id, @NotBlank @Size(min = 2, max = 255) String name, boolean active) {
         this.id = id;
         this.name = name;
         this.active = active;

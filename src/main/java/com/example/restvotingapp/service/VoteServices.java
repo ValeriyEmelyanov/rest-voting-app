@@ -11,7 +11,7 @@ import java.util.List;
 public interface VoteServices {
     List<VotePlainDto> listByDate(LocalDate date, int page, int limit);
     int countAllByDate(LocalDate date);
-    int countAllByDateAndRestaraunt(LocalDate date, int restarauntId);
+    int countAllByDateAndRestaurant(LocalDate date, int restaurantId);
     VoteDto create(VoteDto voteDetails);
     void delete(Long id);
 }

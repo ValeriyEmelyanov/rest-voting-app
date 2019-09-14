@@ -57,13 +57,13 @@ public class VoteController {
         return voteService.countAllByDate(date);
     }
 
-    @GetMapping(path = "/date/{date}/count/restaraunt/{restaraunt_id}")
-    int getCountByDateAndRestaraunt(
+    @GetMapping(path = "/date/{date}/count/restaurant/{restaurant_id}")
+    int getCountByDateAndRestaurant(
             @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
-            @PathVariable(name = "restaraunt_id") int restarauntId) {
-        log.info("Get votes count for {} and restaraunt {}", date, restarauntId);
+            @PathVariable(name = "restaurant_id") int restaurantId) {
+        log.info("Get votes count for {} and restaurant {}", date, restaurantId);
 
-        return voteService.countAllByDateAndRestaraunt(date, restarauntId);
+        return voteService.countAllByDateAndRestaurant(date, restaurantId);
     }
 
     @PostMapping
@@ -74,12 +74,12 @@ public class VoteController {
         VoteRest returnValue = new VoteRest();
 
         VoteDto createdVote = voteService.create(voteDetails);
-        BeanUtils.copyProperties(createdVote, returnValue, "user,menu,restaraunt");
+        BeanUtils.copyProperties(createdVote, returnValue, "user,menu,restaurant");
         returnValue.setUserId(createdVote.getUser().getId());
         returnValue.setUserName(createdVote.getUser().getName());
         returnValue.setMenuId(createdVote.getMenu().getId());
-        returnValue.setRestarauntId(createdVote.getRestaraunt().getId());
-        returnValue.setRestarauntName(createdVote.getRestaraunt().getName());
+        returnValue.setRestaurantId(createdVote.getRestaurant().getId());
+        returnValue.setRestaurantName(createdVote.getRestaurant().getName());
 
         return returnValue;
     }

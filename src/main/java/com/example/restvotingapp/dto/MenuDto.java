@@ -1,8 +1,5 @@
 package com.example.restvotingapp.dto;
 
-import com.example.restvotingapp.entity.MenuItem;
-import com.example.restvotingapp.entity.Restaraunt;
-
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
@@ -11,7 +8,7 @@ public class MenuDto {
 
     private Integer id;
 
-    private RestarauntDto restaraunt;
+    private RestaurantDto restaurant;
 
     @NotNull
     private LocalDate date;
@@ -26,12 +23,12 @@ public class MenuDto {
         this.id = id;
     }
 
-    public RestarauntDto getRestaraunt() {
-        return restaraunt;
+    public RestaurantDto getRestaurant() {
+        return restaurant;
     }
 
-    public void setRestaraunt(RestarauntDto restaraunt) {
-        this.restaraunt = restaraunt;
+    public void setRestaurant(RestaurantDto restaurant) {
+        this.restaurant = restaurant;
     }
 
     public LocalDate getDate() {

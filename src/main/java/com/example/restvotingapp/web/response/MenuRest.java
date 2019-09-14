@@ -5,7 +5,7 @@ import java.util.List;
 
 public class MenuRest {
     private Integer id;
-    private RestarauntRest restaraunt;
+    private RestaurantRest restaurant;
     private LocalDate date;
     private List<MenuItemRest> items;
 
@@ -17,12 +17,12 @@ public class MenuRest {
         this.id = id;
     }
 
-    public RestarauntRest getRestaraunt() {
-        return restaraunt;
+    public RestaurantRest getRestaurant() {
+        return restaurant;
     }
 
-    public void setRestaraunt(RestarauntRest restaraunt) {
-        this.restaraunt = restaraunt;
+    public void setRestaurant(RestaurantRest restaurant) {
+        this.restaurant = restaurant;
     }
 
     public LocalDate getDate() {
