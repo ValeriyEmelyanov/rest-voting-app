@@ -2,6 +2,7 @@ package com.example.restvotingapp.service.Impl;
 
 import com.example.restvotingapp.dto.UserDto;
 import com.example.restvotingapp.entity.User;
+import com.example.restvotingapp.exceptions.RecordAlreadyExistsException;
 import com.example.restvotingapp.repository.UserRepository;
 import com.example.restvotingapp.service.UserService;
 import org.springframework.beans.BeanUtils;
@@ -57,7 +58,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public UserDto create(UserDto user) {
         if (userRepository.findByEmail(user.getEmail()) != null) {
-            throw new RuntimeException("User already exists!");
+            throw new RecordAlreadyExistsException("User already exists!");
         }
 
         User userEntity = new User();
@@ -77,7 +78,7 @@ public class UserServiceImpl implements UserService {
         User userEntity = userRepository.findByEmail(email);
 
         if (userEntity == null) {
-            throw new RuntimeException("User with E-Mail: " + email + " not found");
+            throw new UsernameNotFoundException("User with E-Mail: " + email + " not found");
         }
 
         UserDto returnValue = new UserDto();
@@ -89,7 +90,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto getById(Integer id) {
         User userEntity = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User with ID: " + id + " not found"));
+                .orElseThrow(() -> new UsernameNotFoundException("User with ID: " + id + " not found"));
 
         UserDto returnValue = new UserDto();
         BeanUtils.copyProperties(userEntity, returnValue);
@@ -101,7 +102,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public UserDto update(Integer id, UserDto user) {
         User userEntity = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User with ID: " + id + " not found"));
+                .orElseThrow(() -> new UsernameNotFoundException("User with ID: " + id + " not found"));
 
         userEntity.setName(user.getName());
         userEntity.setEnabled(user.isEnabled());
@@ -118,7 +119,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void delete(Integer id) {
         User userEntity = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User with ID: " + id + " not found"));
+                .orElseThrow(() -> new UsernameNotFoundException("User with ID: " + id + " not found"));
 
         userRepository.delete(userEntity);
     }
@@ -128,7 +129,7 @@ public class UserServiceImpl implements UserService {
         User userEntity = userRepository.findByEmail(email);
 
         if (userEntity == null) {
-            throw new UsernameNotFoundException(email);
+            throw new UsernameNotFoundException("User with email: " + email + " not found");
         }
 
         List<GrantedAuthority> grantedAuthorityList = new ArrayList<>(userEntity.getRoles());

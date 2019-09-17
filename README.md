@@ -55,6 +55,7 @@ API documentation is [here](Doc/api.md).
   * <a href="http://deskbook.info/hibernate/annotations/2-annotation-jpa.html">Аннотации JPA</a>
   * <a href="http://deskbook.info/hibernate/inheritance/11-jpa-mappedsuperclass.html">Аннотация @MappedSuperclass</a>
   * <a href="https://ru.stackoverflow.com/questions/874276/%D0%94%D0%BB%D1%8F-%D1%87%D0%B5%D0%B3%D0%BE-accesstype-field-%D0%B8-accesstype-property-%D0%B2-access">Для чего AccessType.FIELD и AccessType.PROPERTY в @Access?</a>
+  * <a href="https://javatalks.ru/topics/14436">Можно небольшой вводный пример по HSQLDB?</a>  
 * Security
   * <a href="https://stackoverflow.com/questions/19525380/difference-between-role-and-grantedauthority-in-spring-security">Difference between Role and GrantedAuthority in Spring Security</a>
   * <a href="https://stackoverflow.com/questions/30819337/multiple-antmatchers-in-spring-security">Multiple antMatchers in Spring security</a>
@@ -63,6 +64,9 @@ API documentation is [here](Doc/api.md).
 * App / Project Examples
   * <a href="https://o7planning.org/ru/11705/create-a-login-application-with-spring-boot-spring-security-jpa">Создайте приложение для входа с Spring Boot, Spring Security, JPA</a>
   * <a href="https://www.mkyong.com/spring-boot/spring-rest-spring-security-example/">Spring REST + Spring Security Example</a>
+* HTTP codes
+  * <a href="https://tools.ietf.org/html/rfc7231#section-6.5.8">6.5.8.  409 Conflict</a>
+* cUrl
+  * <a href="https://www.mkyong.com/spring/curl-post-request-examples/">cURL – POST request examples</a>
 * API Documentation
   * <a href="https://gist.github.com/iros/3426278">Documenting your REST API</a>
-  * <a href=""></a>

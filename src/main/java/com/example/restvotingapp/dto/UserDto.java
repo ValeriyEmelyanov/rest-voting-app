@@ -15,20 +15,19 @@ public class UserDto {
 
     private Integer id;
 
-    @NotBlank
+    @NotBlank(message = "Please provide a name")
     @Size(min = 2, max = 255)
     private String name;
 
     @Email
-    @NotBlank
+    @NotBlank(message = "Please provide an email")
     @Size(max = 255)
     private String email;
 
-    @NotBlank
+    @NotBlank(message = "Please provide a password")
     @Size(min = 5, max = 255)
     private String password;
 
-    @NotNull
     private Date registered = new Date();
 
     private boolean enabled = true;
