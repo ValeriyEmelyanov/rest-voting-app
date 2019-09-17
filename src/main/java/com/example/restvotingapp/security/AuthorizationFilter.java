@@ -18,11 +18,6 @@ public class AuthorizationFilter extends BasicAuthenticationFilter {
 
     private UserService userService;
 
-//    @Autowired
-//    public void setUserService(UserService userService) {
-//        this.userService = userService;
-//    }
-
     public AuthorizationFilter(AuthenticationManager authenticationManager, UserService userService) {
         super(authenticationManager);
         this.userService = userService;

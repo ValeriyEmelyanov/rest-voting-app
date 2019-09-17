@@ -63,4 +63,6 @@ API documentation is [here](Doc/api.md).
 * App / Project Examples
   * <a href="https://o7planning.org/ru/11705/create-a-login-application-with-spring-boot-spring-security-jpa">Создайте приложение для входа с Spring Boot, Spring Security, JPA</a>
   * <a href="https://www.mkyong.com/spring-boot/spring-rest-spring-security-example/">Spring REST + Spring Security Example</a>
+* API Documentation
+  * <a href="https://gist.github.com/iros/3426278">Documenting your REST API</a>
   * <a href=""></a>
