@@ -2,6 +2,8 @@ package com.example.restvotingapp.service.Impl;
 
 import com.example.restvotingapp.dto.RestaurantDto;
 import com.example.restvotingapp.entity.Restaurant;
+import com.example.restvotingapp.exceptions.RecordAlreadyExistsException;
+import com.example.restvotingapp.exceptions.RecordNotFoundException;
 import com.example.restvotingapp.repository.RestaurantRepository;
 import com.example.restvotingapp.service.RestaurantService;
 import org.springframework.beans.BeanUtils;
@@ -65,7 +67,7 @@ public class RestaurantServiceImpl implements RestaurantService {
     @Override
     public RestaurantDto getById(Integer id) {
         Restaurant restaurantEntity = restaurantRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Restaurant with ID: " + id + " not found"));
+                .orElseThrow(() -> new RecordNotFoundException("Restaurant with ID: " + id + " not found"));
 
         RestaurantDto returnValue = new RestaurantDto();
         BeanUtils.copyProperties(restaurantEntity, returnValue);
@@ -77,7 +79,7 @@ public class RestaurantServiceImpl implements RestaurantService {
     @Transactional
     public RestaurantDto create(RestaurantDto restaurantDetails) {
         if (restaurantRepository.findByName(restaurantDetails.getName()) != null) {
-            throw new RuntimeException("Restaurant already exists!");
+            throw new RecordAlreadyExistsException("Restaurant already exists!");
         }
 
         Restaurant restaurantEntity = new Restaurant();
@@ -95,7 +97,7 @@ public class RestaurantServiceImpl implements RestaurantService {
     @Transactional
     public RestaurantDto update(Integer id, RestaurantDto restaurantDetails) {
         Restaurant restaurantEntity = restaurantRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Restaurant with ID: " + id + " not found"));
+                .orElseThrow(() -> new RecordNotFoundException("Restaurant with ID: " + id + " not found"));
 
         restaurantEntity.setName(restaurantDetails.getName());
         restaurantEntity.setActive(restaurantDetails.isActive());
@@ -111,7 +113,7 @@ public class RestaurantServiceImpl implements RestaurantService {
     @Transactional
     public void delete(Integer id) {
         Restaurant userEntity = restaurantRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Restaurant with ID: " + id + " not found"));
+                .orElseThrow(() -> new RecordNotFoundException("Restaurant with ID: " + id + " not found"));
 
         restaurantRepository.delete(userEntity);
     }

@@ -76,6 +76,7 @@ public class RestaurantController {
 
     @PostMapping
     @Transactional
+    @ResponseStatus(value = HttpStatus.CREATED)
     public RestaurantRest create(@RequestBody RestaurantDto restaurantDetails) {
         log.info("Greate restaurant");
 

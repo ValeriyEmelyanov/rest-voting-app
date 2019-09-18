@@ -31,7 +31,8 @@ public class AppExceptionHandler {
     }
 
     @ExceptionHandler(value = {
-            UsernameNotFoundException.class
+            UsernameNotFoundException.class,
+            RecordNotFoundException.class
             })
     public void notFoundException(HttpServletResponse response) throws Exception {
         response.sendError(HttpStatus.BAD_REQUEST.value());
