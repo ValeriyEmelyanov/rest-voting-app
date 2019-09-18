@@ -5,6 +5,8 @@ import com.example.restvotingapp.dto.MenuItemDto;
 import com.example.restvotingapp.entity.Menu;
 import com.example.restvotingapp.entity.MenuItem;
 import com.example.restvotingapp.entity.Restaurant;
+import com.example.restvotingapp.exceptions.RecordAlreadyExistsException;
+import com.example.restvotingapp.exceptions.RecordNotFoundException;
 import com.example.restvotingapp.repository.MenuItemRepository;
 import com.example.restvotingapp.repository.MenuRepository;
 import com.example.restvotingapp.repository.RestaurantRepository;
@@ -56,7 +58,7 @@ public class MenuServiceImpl implements MenuService {
     @Override
     public MenuDto getByDateAndRestaurant(LocalDate date, Integer restaurant_id) {
         Restaurant restaurantEntity = restaurantRepository.findById(restaurant_id)
-                .orElseThrow(() -> new RuntimeException("Restaurant with ID: " + restaurant_id + " not found"));
+                .orElseThrow(() -> new RecordNotFoundException("Restaurant with ID: " + restaurant_id + " not found"));
 
         Menu menuEntity = menuRepository.findByDateAndRestaurant(date, restaurantEntity);
         ModelMapper modelMapper = new ModelMapper();
@@ -67,7 +69,7 @@ public class MenuServiceImpl implements MenuService {
     @Override
     public MenuDto getById(Integer id) {
         Menu menuEntity = menuRepository.getById(id)
-                .orElseThrow(() -> new RuntimeException("Menu with ID: " + id + " not found"));
+                .orElseThrow(() -> new RecordNotFoundException("Menu with ID: " + id + " not found"));
 
         ModelMapper modelMapper = new ModelMapper();
 
@@ -80,11 +82,11 @@ public class MenuServiceImpl implements MenuService {
         // Find restaurant
         Integer restaurantId = menuDetails.getRestaurant().getId();
         Restaurant restaurant = restaurantRepository.findById(restaurantId)
-                .orElseThrow(() -> new RuntimeException("Restaurant with ID: " + restaurantId + " not found"));
+                .orElseThrow(() -> new RecordNotFoundException("Restaurant with ID: " + restaurantId + " not found"));
 
         // Check if menu exist for date and restaurant
         if (menuRepository.findByDateAndRestaurant(menuDetails.getDate(), restaurant) != null) {
-            throw new RuntimeException("Menu already exists!");
+            throw new RecordAlreadyExistsException("Menu already exists!");
         }
 
         // Create new menu
@@ -114,7 +116,7 @@ public class MenuServiceImpl implements MenuService {
     public MenuDto update(Integer id, MenuDto menuDetails) {
         // Find menu
         Menu menuEntity = menuRepository.getById(id)
-                .orElseThrow(() -> new RuntimeException("Menu with ID: " + id + " not found"));
+                .orElseThrow(() -> new RecordNotFoundException("Menu with ID: " + id + " not found"));
 
         // Delete old menu items
         List<MenuItem> itemsToDelete = menuEntity.getItems();
@@ -144,7 +146,7 @@ public class MenuServiceImpl implements MenuService {
     @Transactional
     public void delete(Integer id) {
         Menu userEntity = menuRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Menu with ID: " + id + " not found"));
+                .orElseThrow(() -> new RecordNotFoundException("Menu with ID: " + id + " not found"));
 
         menuRepository.delete(userEntity);
     }

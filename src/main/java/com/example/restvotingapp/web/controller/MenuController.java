@@ -66,6 +66,7 @@ public class MenuController {
 
     @PostMapping
     @Transactional
+    @ResponseStatus(value = HttpStatus.CREATED)
     public MenuRest create(@RequestBody MenuDto menuDetails) {
         log.info("Greate menu");
 

@@ -68,6 +68,7 @@ public class VoteController {
 
     @PostMapping
     @Transactional
+    @ResponseStatus(value = HttpStatus.CREATED)
     VoteRest create(@RequestBody VoteDto voteDetails) {
         log.info("Create vote");
 
