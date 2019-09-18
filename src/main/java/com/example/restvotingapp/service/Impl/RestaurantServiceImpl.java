@@ -112,9 +112,9 @@ public class RestaurantServiceImpl implements RestaurantService {
     @Override
     @Transactional
     public void delete(Integer id) {
-        Restaurant userEntity = restaurantRepository.findById(id)
+        Restaurant restaurant = restaurantRepository.findById(id)
                 .orElseThrow(() -> new RecordNotFoundException("Restaurant with ID: " + id + " not found"));
 
-        restaurantRepository.delete(userEntity);
+        restaurantRepository.delete(restaurant);
     }
 }

@@ -7,6 +7,8 @@ import com.example.restvotingapp.entity.Menu;
 import com.example.restvotingapp.entity.Restaurant;
 import com.example.restvotingapp.entity.User;
 import com.example.restvotingapp.entity.Vote;
+import com.example.restvotingapp.exceptions.RecordNotFoundException;
+import com.example.restvotingapp.exceptions.WrongTimeException;
 import com.example.restvotingapp.repository.MenuRepository;
 import com.example.restvotingapp.repository.RestaurantRepository;
 import com.example.restvotingapp.repository.UserRepository;
@@ -17,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -71,7 +74,7 @@ public class VoteServiceImpl implements VoteServices {
     @Override
     public int countAllByDateAndRestaurant(LocalDate date, int restaurantId) {
         Restaurant restaurantEntity = restaurantRepository.findById(restaurantId)
-                .orElseThrow(() -> new RuntimeException("Restaurant with ID: " + restaurantId + " not found"));
+                .orElseThrow(() -> new RecordNotFoundException("Restaurant with ID: " + restaurantId + " not found"));
 
         return voteRepository.countAllByDateAndRestaurant(date, restaurantEntity);
     }
@@ -81,17 +84,17 @@ public class VoteServiceImpl implements VoteServices {
     public VoteDto create(VoteDto voteDetails) {
         // Check current time
         if (LocalTime.now().isAfter(DEAD_LINE_TIME)) {
-            throw new RuntimeException("Voting is impossible after " + DEAD_LINE_TIME);
+            throw new WrongTimeException("Voting is impossible befor " + DEAD_LINE_TIME);
         }
 
         // Check if vote for date and user exists
         Integer userId = voteDetails.getUser().getId();
         User userEntity = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User with ID: " + userId + " not found"));
+                .orElseThrow(() -> new UsernameNotFoundException("User with ID: " + userId + " not found"));
         Integer menuId = voteDetails.getMenu().getId();
         MenuWithoutItemsDto menuWithoutItemsRest = menuRepository.getByIdWithoutItems(menuId);
         if (menuWithoutItemsRest == null) {
-            throw  new RuntimeException("Menu with ID: " + menuId + " not found");
+            throw  new RecordNotFoundException("Menu with ID: " + menuId + " not found");
         }
 
         Long id = voteRepository.findByDateAndUserQL(menuWithoutItemsRest.getDate(), userEntity);
@@ -117,6 +120,9 @@ public class VoteServiceImpl implements VoteServices {
     @Override
     @Transactional
     public void delete(Long id) {
+        Vote vote = voteRepository.findById(id)
+                .orElseThrow(() -> new RecordNotFoundException("Vote with ID: " + id + " not found"));
+
         voteRepository.deleteById(id);
     }
 }
