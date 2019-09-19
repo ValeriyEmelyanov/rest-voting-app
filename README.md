@@ -33,7 +33,7 @@ P.P.S.: Asume that your API will be used by a frontend developer to build fronte
 
 ## Solution
 
-#### Concise description
+### Concise description
 * To use the REST service API user have to be authenticated with email and password
 * 2 types of users: admin and regular users
 * Admin has full access to users, restaurants, menus and votes
@@ -43,7 +43,7 @@ P.P.S.: Asume that your API will be used by a frontend developer to build fronte
   * If it is before 11:00 we asume that he changed his mind
   * If it is after 11:00 then it is too late, vote can't be changed
   
-#### API Documentation
+### API Documentation
 
 API documentation is [here](Doc/api.md).
   
@@ -59,11 +59,14 @@ API documentation is [here](Doc/api.md).
 * Security
   * <a href="https://stackoverflow.com/questions/19525380/difference-between-role-and-grantedauthority-in-spring-security">Difference between Role and GrantedAuthority in Spring Security</a>
   * <a href="https://stackoverflow.com/questions/30819337/multiple-antmatchers-in-spring-security">Multiple antMatchers in Spring security</a>
-* Assurance
-  * <a href="http://appsdeveloperblog.com/tag/rest-assured/">REST-assured</a>
-* App / Project Examples
   * <a href="https://o7planning.org/ru/11705/create-a-login-application-with-spring-boot-spring-security-jpa">Создайте приложение для входа с Spring Boot, Spring Security, JPA</a>
   * <a href="https://www.mkyong.com/spring-boot/spring-rest-spring-security-example/">Spring REST + Spring Security Example</a>
+* Validation
+  * <a href="https://www.mkyong.com/spring-boot/spring-rest-validation-example/">Spring REST Validation Example</a>
+  * <a href="https://stackoverflow.com/questions/15646453/java-digits-validation">Java Digits Validation</a>
+  * <a href="https://stackoverflow.com/questions/36173332/difference-between-valid-and-validated-in-spring">Difference between @Valid and @Validated in Spring</a>
+* Assurance
+  * <a href="http://appsdeveloperblog.com/tag/rest-assured/">REST-assured</a>
 * HTTP codes
   * <a href="https://tools.ietf.org/html/rfc7231#section-6.5.8">6.5.8.  409 Conflict</a>
 * cUrl

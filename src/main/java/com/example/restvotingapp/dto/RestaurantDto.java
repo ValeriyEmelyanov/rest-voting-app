@@ -7,7 +7,7 @@ public class RestaurantDto {
 
     private Integer id;
 
-    @NotBlank
+    @NotBlank(message = "Please provide a name")
     @Size(min = 2, max = 255)
     private String name;
 

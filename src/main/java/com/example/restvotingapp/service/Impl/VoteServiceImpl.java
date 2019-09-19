@@ -7,6 +7,7 @@ import com.example.restvotingapp.entity.Menu;
 import com.example.restvotingapp.entity.Restaurant;
 import com.example.restvotingapp.entity.User;
 import com.example.restvotingapp.entity.Vote;
+import com.example.restvotingapp.exceptions.RecordAlreadyExistsException;
 import com.example.restvotingapp.exceptions.RecordNotFoundException;
 import com.example.restvotingapp.exceptions.WrongTimeException;
 import com.example.restvotingapp.repository.MenuRepository;
@@ -97,7 +98,12 @@ public class VoteServiceImpl implements VoteServices {
             throw  new RecordNotFoundException("Menu with ID: " + menuId + " not found");
         }
 
-        Long id = voteRepository.findByDateAndUserQL(menuWithoutItemsRest.getDate(), userEntity);
+        Long id = voteRepository.findByDateAndUserAndMenuQL(menuWithoutItemsRest.getDate(), userEntity, menuId);
+        if (id != null) {
+            throw new RecordAlreadyExistsException("Vote already exists!");
+        }
+
+        id = voteRepository.findByDateAndUserQL(menuWithoutItemsRest.getDate(), userEntity);
         if (id != null) {
             voteRepository.deleteById(id);
         }

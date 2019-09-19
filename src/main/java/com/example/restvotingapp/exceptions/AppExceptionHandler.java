@@ -23,6 +23,7 @@ public class AppExceptionHandler {
 
     @ExceptionHandler(value = {
             ConstraintViolationException.class,
+            org.hibernate.exception.ConstraintViolationException.class,
             MethodArgumentNotValidException.class,
             MethodArgumentTypeMismatchException.class,
             })

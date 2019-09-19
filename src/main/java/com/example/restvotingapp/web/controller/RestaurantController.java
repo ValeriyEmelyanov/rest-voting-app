@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,7 +78,7 @@ public class RestaurantController {
     @PostMapping
     @Transactional
     @ResponseStatus(value = HttpStatus.CREATED)
-    public RestaurantRest create(@RequestBody RestaurantDto restaurantDetails) {
+    public RestaurantRest create(@Valid @RequestBody RestaurantDto restaurantDetails) {
         log.info("Greate restaurant");
 
         RestaurantRest returnValue = new RestaurantRest();

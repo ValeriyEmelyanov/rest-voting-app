@@ -1,6 +1,7 @@
 package com.example.restvotingapp.repository;
 
 import com.example.restvotingapp.dto.VotePlainDto;
+import com.example.restvotingapp.entity.Menu;
 import com.example.restvotingapp.entity.Restaurant;
 import com.example.restvotingapp.entity.User;
 import com.example.restvotingapp.entity.Vote;
@@ -28,6 +29,11 @@ public interface VoteRepository extends PagingAndSortingRepository<Vote, Long> {
     
     @Query(value = "select v.id from Vote v where v.date=:date and v.user=:user")
     Long findByDateAndUserQL(@Param("date") LocalDate date, @Param("user") User user);
+
+    @Query(value = "select v.id from Vote v where v.date=:date and v.user=:user and v.menu.id=:menu_id")
+    Long findByDateAndUserAndMenuQL(@Param("date") LocalDate date,
+                                    @Param("user") User user,
+                                    @Param("menu_id") Integer menuId);
 
     void deleteById(Long id);
 }

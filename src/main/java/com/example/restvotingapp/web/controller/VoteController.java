@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +70,7 @@ public class VoteController {
     @PostMapping
     @Transactional
     @ResponseStatus(value = HttpStatus.CREATED)
-    VoteRest create(@RequestBody VoteDto voteDetails) {
+    VoteRest create(@Valid @RequestBody VoteDto voteDetails) {
         log.info("Create vote");
 
         VoteRest returnValue = new VoteRest();
