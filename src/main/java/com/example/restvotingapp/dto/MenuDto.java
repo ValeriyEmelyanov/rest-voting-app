@@ -8,11 +8,13 @@ public class MenuDto {
 
     private Integer id;
 
+    @NotNull
     private RestaurantDto restaurant;
 
     @NotNull
     private LocalDate date;
 
+    @NotNull
     private List<MenuItemDto> items;
 
     public Integer getId() {

@@ -84,7 +84,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg5MjM1NjJ9.xFd8M2t6L50jbO46VR1oaXjq1CKa5_2ziCjdp6DSXkhqdOMdEgPAkb3RotB6BPKASUbGrn_fYo07i1MgNEfytg",
 						"description": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTU1MDB9.HbV9zHijwtOaGHUZb9Dw1R-ahkE4ajX4tFhl8KSehSXRM1uskcBWPcbeiyD6ylF-nbs8tZcZRXr8kl5MxJJAHQ",
 						"type": "text"
 					},
@@ -121,7 +121,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg3NTI1MDd9.iujp0k0wphGkgrU-0_JASL1YkuehWQXmqOys-JMp13JfYbWPVDvPerP8jilidfM0rYcN2yYx9jRQ3ok89pTEKg",
 						"type": "text"
 					}
 				],
@@ -162,7 +162,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg5MjU4OTV9.Trn9KM4bCwsAuDgcBXVse2YfJQLMt1WForcmulG4T9KkKe5eAFqofUUUqikdU6H_nrebDC5lKiZn8vulFNyHzw",
 						"type": "text"
 					}
 				],
@@ -199,7 +199,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg0OTI0NjV9.aqPJJtS1GbapmzDqKNkorz_0R1NZNm5QcFsQuPsXjxSA1Jw1AZHaMO-dnyutxZl3tF3YyhUmz1lxRALoqic2xA",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg5MTkxODR9.3aCyOAmHNEI36AOZKH_YT0CnrOipzUSQPynWMt2WJzdOACcH76fa8v2fhnONAyV6bL8slYfJ5AB9AqGYdJ0bfg",
 						"type": "text"
 					}
 				],
@@ -229,6 +229,7 @@
 				"header": [
 					{
 						"key": "Content-Type",
+						"name": "Content-Type",
 						"value": "application/json",
 						"type": "text"
 					},
@@ -239,13 +240,18 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1NjgzOTY0NTN9.r2p6qCa-Gh88z3k6VzbmoB2Q-PVlWbfyKv8E5BxUlK6EFe8_TXyOrh5Unt7J3LB95EbB550vpxUbwX4g3NXmew",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg4Mjg2NTZ9.wniB8Es7XsFEkDcUomEo0sHF3YcgjL-qVuoAVehenys73uFIR7geTecea3WHyK0cDE0qa21BYsFnZ6YQvx86hQ",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"User updated\",\r\n    \"enabled\": true,\r\n    \"roles\":[\"ROLE_ADMIN\",\"ROLE_USER\"]\r\n}"
+					"raw": "{\r\n    \"name\": \"User updated\",\r\n    \"enabled\": true,\r\n    \"roles\":[\"ROLE_ADMIN\",\"ROLE_USER\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
 					"raw": "http://localhost:8080/rest-voting-app/users/101",
@@ -303,7 +309,7 @@
 					{
 						"key": "Authorization",
 						"type": "text",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg1ODU2NzV9.GgqxO6eUst87qOxCVP7kEe8v50r-GLcc6yenyV0AOEFOaTkK3KoxqyWQRwa3nL77spaIfFAxL79hu8NBFD5exg"
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg5MTkxODR9.3aCyOAmHNEI36AOZKH_YT0CnrOipzUSQPynWMt2WJzdOACcH76fa8v2fhnONAyV6bL8slYfJ5AB9AqGYdJ0bfg"
 					}
 				],
 				"url": {
@@ -333,7 +339,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg1ODU2NzV9.GgqxO6eUst87qOxCVP7kEe8v50r-GLcc6yenyV0AOEFOaTkK3KoxqyWQRwa3nL77spaIfFAxL79hu8NBFD5exg",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg5MTkxODR9.3aCyOAmHNEI36AOZKH_YT0CnrOipzUSQPynWMt2WJzdOACcH76fa8v2fhnONAyV6bL8slYfJ5AB9AqGYdJ0bfg",
 						"type": "text"
 					}
 				],
@@ -373,7 +379,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg1ODU2NzV9.GgqxO6eUst87qOxCVP7kEe8v50r-GLcc6yenyV0AOEFOaTkK3KoxqyWQRwa3nL77spaIfFAxL79hu8NBFD5exg",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg5MTkxODR9.3aCyOAmHNEI36AOZKH_YT0CnrOipzUSQPynWMt2WJzdOACcH76fa8v2fhnONAyV6bL8slYfJ5AB9AqGYdJ0bfg",
 						"type": "text"
 					}
 				],
@@ -382,7 +388,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8080/rest-voting-app/restaurants/101",
+					"raw": "http://localhost:8080/rest-voting-app/restaurants/100",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -391,7 +397,7 @@
 					"path": [
 						"rest-voting-app",
 						"restaurants",
-						"101"
+						"100"
 					]
 				}
 			},
@@ -404,6 +410,7 @@
 				"header": [
 					{
 						"key": "Content-Type",
+						"name": "Content-Type",
 						"value": "application/json",
 						"type": "text"
 					},
@@ -414,13 +421,18 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg1ODU2NzV9.GgqxO6eUst87qOxCVP7kEe8v50r-GLcc6yenyV0AOEFOaTkK3KoxqyWQRwa3nL77spaIfFAxL79hu8NBFD5exg",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg5MTkxODR9.3aCyOAmHNEI36AOZKH_YT0CnrOipzUSQPynWMt2WJzdOACcH76fa8v2fhnONAyV6bL8slYfJ5AB9AqGYdJ0bfg",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\t\"name\":\"Sogt light\"\n}"
+					"raw": "{\n\t\t\"name\":\"Sogt light\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
 					"raw": "http://localhost:8080/rest-voting-app/restaurants",
@@ -444,18 +456,29 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"type": "text",
-						"value": "application/json"
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
 					},
 					{
 						"key": "Authorization",
 						"type": "text",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg1ODU2NzV9.GgqxO6eUst87qOxCVP7kEe8v50r-GLcc6yenyV0AOEFOaTkK3KoxqyWQRwa3nL77spaIfFAxL79hu8NBFD5exg"
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg5MTkxODR9.3aCyOAmHNEI36AOZKH_YT0CnrOipzUSQPynWMt2WJzdOACcH76fa8v2fhnONAyV6bL8slYfJ5AB9AqGYdJ0bfg"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\t\"name\":\"East closed\",\n\t\t\"active\":\"false\"\n}"
+					"raw": "{\n\t\t\"name\":\"East closed\",\n\t\t\"active\":\"false\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
 					"raw": "http://localhost:8080/rest-voting-app/restaurants/101",
@@ -481,7 +504,7 @@
 					{
 						"key": "Authorization",
 						"type": "text",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg1ODU2NzV9.GgqxO6eUst87qOxCVP7kEe8v50r-GLcc6yenyV0AOEFOaTkK3KoxqyWQRwa3nL77spaIfFAxL79hu8NBFD5exg"
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg5MTkxODR9.3aCyOAmHNEI36AOZKH_YT0CnrOipzUSQPynWMt2WJzdOACcH76fa8v2fhnONAyV6bL8slYfJ5AB9AqGYdJ0bfg"
 					}
 				],
 				"url": {
@@ -512,7 +535,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg1ODU2NzV9.GgqxO6eUst87qOxCVP7kEe8v50r-GLcc6yenyV0AOEFOaTkK3KoxqyWQRwa3nL77spaIfFAxL79hu8NBFD5exg",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg5OTk4NTR9.IvwXD9dy8qFhSD1o-9DgcMfrLu5kTFHOxMoi35S6BYJIzj1PNdYp70f5hAFc4LUP2WFjixOPOZCom8fPqLzANw",
 						"type": "text"
 					}
 				],
@@ -545,7 +568,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg1ODU2NzV9.GgqxO6eUst87qOxCVP7kEe8v50r-GLcc6yenyV0AOEFOaTkK3KoxqyWQRwa3nL77spaIfFAxL79hu8NBFD5exg",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg5OTk4NTR9.IvwXD9dy8qFhSD1o-9DgcMfrLu5kTFHOxMoi35S6BYJIzj1PNdYp70f5hAFc4LUP2WFjixOPOZCom8fPqLzANw",
 						"type": "text"
 					}
 				],
@@ -580,7 +603,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg1ODU2NzV9.GgqxO6eUst87qOxCVP7kEe8v50r-GLcc6yenyV0AOEFOaTkK3KoxqyWQRwa3nL77spaIfFAxL79hu8NBFD5exg",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg5MjM1NjJ9.xFd8M2t6L50jbO46VR1oaXjq1CKa5_2ziCjdp6DSXkhqdOMdEgPAkb3RotB6BPKASUbGrn_fYo07i1MgNEfytg",
 						"type": "text"
 					}
 				],
@@ -607,6 +630,7 @@
 				"header": [
 					{
 						"key": "Content-Type",
+						"name": "Content-Type",
 						"value": "application/json",
 						"type": "text"
 					},
@@ -617,13 +641,64 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg1ODU2NzV9.GgqxO6eUst87qOxCVP7kEe8v50r-GLcc6yenyV0AOEFOaTkK3KoxqyWQRwa3nL77spaIfFAxL79hu8NBFD5exg",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg5OTk4NTR9.IvwXD9dy8qFhSD1o-9DgcMfrLu5kTFHOxMoi35S6BYJIzj1PNdYp70f5hAFc4LUP2WFjixOPOZCom8fPqLzANw",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"restaurant\": {\r\n        \"id\": 100\r\n    },\r\n    \"date\": \"2019-01-03\",\r\n    \"items\": [\r\n        {\r\n            \"dish\": \"Meal 1 (2019-01-03, Weeping willow)\",\r\n            \"price\": 55.99\r\n        },\r\n        {\r\n            \"dish\": \"Meal 2 (2019-01-03, Weeping willow)\",\r\n            \"price\": 65.01\r\n        },\r\n        {\r\n            \"dish\": \"Meal 3 (2019-01-03, Weeping willow)\",\r\n            \"price\": 75.00\r\n        }\r\n    ]\r\n}"
+					"raw": "{\r\n    \"restaurant\": {\r\n        \"id\": 100\r\n    },\r\n    \"date\": \"2019-01-03\",\r\n    \"items\": [\r\n        {\r\n            \"dish\": \"Meal 1 (2019-01-03, Weeping willow)\",\r\n            \"price\": 55.99\r\n        },\r\n        {\r\n            \"dish\": \"Meal 2 (2019-01-03, Weeping willow)\",\r\n            \"price\": 65.01\r\n        },\r\n        {\r\n            \"dish\": \"Meal 3 (2019-01-03, Weeping willow)\",\r\n            \"price\": 75.00\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest-voting-app/menus",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest-voting-app",
+						"menus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST: menus (BAD)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg5OTk4NTR9.IvwXD9dy8qFhSD1o-9DgcMfrLu5kTFHOxMoi35S6BYJIzj1PNdYp70f5hAFc4LUP2WFjixOPOZCom8fPqLzANw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"restaurant\": {\r\n        \"id\": 101\r\n    },\r\n    \"date\": \"2019-01-03\",\r\n    \"items\": [\r\n        {\r\n            \"dish\": \"\",\r\n            \"price\": 55.991\r\n        },\r\n        {\r\n            \"price\": 65.01\r\n        },\r\n        {\r\n            \"dish\": \"Meal 3 (2019-01-03, Weeping 101)\",\r\n            \"price\": 75.00\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
 					"raw": "http://localhost:8080/rest-voting-app/menus",
@@ -647,6 +722,7 @@
 				"header": [
 					{
 						"key": "Content-Type",
+						"name": "Content-Type",
 						"value": "application/json",
 						"type": "text"
 					},
@@ -657,13 +733,65 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg1ODU2NzV9.GgqxO6eUst87qOxCVP7kEe8v50r-GLcc6yenyV0AOEFOaTkK3KoxqyWQRwa3nL77spaIfFAxL79hu8NBFD5exg",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg5MjM1NjJ9.xFd8M2t6L50jbO46VR1oaXjq1CKa5_2ziCjdp6DSXkhqdOMdEgPAkb3RotB6BPKASUbGrn_fYo07i1MgNEfytg",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"items\": [\r\n        {\r\n            \"dish\": \"Meal 1 updated\",\r\n            \"price\": 90.99\r\n        },\r\n        {\r\n            \"dish\": \"Meal 2 updated\",\r\n            \"price\": 90.01\r\n        },\r\n        {\r\n            \"dish\": \"Meal 3 updated\",\r\n            \"price\": 90.00\r\n        }\r\n    ]\r\n}"
+					"raw": "{\r\n    \"items\": [\r\n        {\r\n            \"dish\": \"Meal 1 updated\",\r\n            \"price\": 90.99\r\n        },\r\n        {\r\n            \"dish\": \"Meal 2 updated\",\r\n            \"price\": 90.01\r\n        },\r\n        {\r\n            \"dish\": \"Meal 3 updated\",\r\n            \"price\": 90.00\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest-voting-app/menus/100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest-voting-app",
+						"menus",
+						"100"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT: menus/100 (BAD)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg5MjM1NjJ9.xFd8M2t6L50jbO46VR1oaXjq1CKa5_2ziCjdp6DSXkhqdOMdEgPAkb3RotB6BPKASUbGrn_fYo07i1MgNEfytg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"items\": [\r\n        {\r\n            \"dish\": \"Meal 1 updated\",\r\n            \"price\": 90.991\r\n        },\r\n        {\r\n            \"dish\": \"Meal 2 updated\",\r\n            \"price\": 90.01\r\n        },\r\n        {\r\n            \"dish\": \"Meal 3 updated\",\r\n            \"price\": 90.00\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
 					"raw": "http://localhost:8080/rest-voting-app/menus/100",
@@ -688,7 +816,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg1ODU2NzV9.GgqxO6eUst87qOxCVP7kEe8v50r-GLcc6yenyV0AOEFOaTkK3KoxqyWQRwa3nL77spaIfFAxL79hu8NBFD5exg",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg5MjM1NjJ9.xFd8M2t6L50jbO46VR1oaXjq1CKa5_2ziCjdp6DSXkhqdOMdEgPAkb3RotB6BPKASUbGrn_fYo07i1MgNEfytg",
 						"type": "text"
 					}
 				],
@@ -753,7 +881,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg1ODU2NzV9.GgqxO6eUst87qOxCVP7kEe8v50r-GLcc6yenyV0AOEFOaTkK3KoxqyWQRwa3nL77spaIfFAxL79hu8NBFD5exg",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg5OTk4NTR9.IvwXD9dy8qFhSD1o-9DgcMfrLu5kTFHOxMoi35S6BYJIzj1PNdYp70f5hAFc4LUP2WFjixOPOZCom8fPqLzANw",
 						"type": "text"
 					}
 				],
@@ -791,7 +919,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg1ODU2NzV9.GgqxO6eUst87qOxCVP7kEe8v50r-GLcc6yenyV0AOEFOaTkK3KoxqyWQRwa3nL77spaIfFAxL79hu8NBFD5exg",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg5OTk4NTR9.IvwXD9dy8qFhSD1o-9DgcMfrLu5kTFHOxMoi35S6BYJIzj1PNdYp70f5hAFc4LUP2WFjixOPOZCom8fPqLzANw",
 						"type": "text"
 					}
 				],
@@ -821,7 +949,7 @@
 					{
 						"key": "Authorization",
 						"type": "text",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg1ODU2NzV9.GgqxO6eUst87qOxCVP7kEe8v50r-GLcc6yenyV0AOEFOaTkK3KoxqyWQRwa3nL77spaIfFAxL79hu8NBFD5exg"
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg5OTk4NTR9.IvwXD9dy8qFhSD1o-9DgcMfrLu5kTFHOxMoi35S6BYJIzj1PNdYp70f5hAFc4LUP2WFjixOPOZCom8fPqLzANw"
 					}
 				],
 				"url": {
@@ -851,6 +979,7 @@
 				"header": [
 					{
 						"key": "Content-Type",
+						"name": "Content-Type",
 						"value": "application/json",
 						"type": "text"
 					},
@@ -861,13 +990,18 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg1ODU2NzV9.GgqxO6eUst87qOxCVP7kEe8v50r-GLcc6yenyV0AOEFOaTkK3KoxqyWQRwa3nL77spaIfFAxL79hu8NBFD5exg",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg5OTk4NTR9.IvwXD9dy8qFhSD1o-9DgcMfrLu5kTFHOxMoi35S6BYJIzj1PNdYp70f5hAFc4LUP2WFjixOPOZCom8fPqLzANw",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"user\": {\n\t\t\"id\": 101\n\t},\n\t\"menu\": {\n\t\t\"id\": 101\n\t}\n}"
+					"raw": "{\n\t\"user\": {\n\t\t\"id\": 101\n\t},\n\t\"menu\": {\n\t\t\"id\": 101\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
 					"raw": "http://localhost:8080/rest-voting-app/votes",
@@ -891,7 +1025,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg1ODU2NzV9.GgqxO6eUst87qOxCVP7kEe8v50r-GLcc6yenyV0AOEFOaTkK3KoxqyWQRwa3nL77spaIfFAxL79hu8NBFD5exg",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1Njg4Mjg2NTZ9.wniB8Es7XsFEkDcUomEo0sHF3YcgjL-qVuoAVehenys73uFIR7geTecea3WHyK0cDE0qa21BYsFnZ6YQvx86hQ",
 						"type": "text"
 					}
 				],

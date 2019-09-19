@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -67,7 +68,7 @@ public class MenuController {
     @PostMapping
     @Transactional
     @ResponseStatus(value = HttpStatus.CREATED)
-    public MenuRest create(@RequestBody MenuDto menuDetails) {
+    public MenuRest create(@Valid @RequestBody MenuDto menuDetails) {
         log.info("Greate menu");
 
         MenuDto createdMenu = menuService.create(menuDetails);

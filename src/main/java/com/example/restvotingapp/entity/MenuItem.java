@@ -1,6 +1,7 @@
 package com.example.restvotingapp.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -21,6 +22,7 @@ public class MenuItem extends AbstractBaseEntity {
     private String dish;
 
     @Column(name = "price", nullable = false, precision = 12, scale = 2)
+    @Digits(integer = 12, fraction = 2, message = "Invalid price format")
     @NotNull
     private BigDecimal price;
 

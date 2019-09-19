@@ -2,16 +2,25 @@ package com.example.restvotingapp.dto;
 
 import com.example.restvotingapp.entity.Menu;
 
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
 public class MenuItemDto {
 
     private Integer id;
 
+    @NotNull
     private Menu menu;
 
+    @NotBlank
+    @Size(min = 2, max = 255)
     private String dish;
 
+    @NotNull
+    @Digits(integer = 12, fraction = 2)
     private BigDecimal price;
 
     public Integer getId() {
