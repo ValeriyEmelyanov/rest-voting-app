@@ -3,6 +3,7 @@ package com.example.restvotingapp.web.controller;
 import com.example.restvotingapp.dto.UserDto;
 import com.example.restvotingapp.entity.Role;
 import com.example.restvotingapp.service.Impl.UserServiceImpl;
+import com.example.restvotingapp.util.EndPoins;
 import com.example.restvotingapp.web.response.UserRest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -68,12 +69,12 @@ class UserControllerTest {
         assertNotNull(resultList);
         assertEquals(users.size(), resultList.size());
 
-        mockMvc.perform(get("/users"))
+        mockMvc.perform(get(EndPoins.USERS))
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON));
 
-        mockMvc.perform(get("/users?page=1&limit=20"))
+        mockMvc.perform(get(EndPoins.USERS + "?page=1&limit=20"))
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON));
@@ -91,7 +92,7 @@ class UserControllerTest {
         assertEquals(userDto.getEmail(), userRest.getEmail());
         assertEquals(userDto.isEnabled(), userRest.isEnabled());
 
-        mockMvc.perform(get("/users/101"))
+        mockMvc.perform(get(EndPoins.USERS + "/101"))
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON));
@@ -108,9 +109,9 @@ class UserControllerTest {
         assertEquals(userDto.isEnabled(), userRest.isEnabled());
 
         String userJsonString = "{\"name\":\"User\",\"email\":\"user@test.com\",\"password\":\"password\"," +
-            "\"roles\":[\"ROLE_USER\"]}";
+                "\"roles\":[\"ROLE_USER\"]}";
 
-        mockMvc.perform(post("/users")
+        mockMvc.perform(post(EndPoins.USERS)
                 .content(userJsonString)
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .accept("application/json"))
@@ -126,7 +127,7 @@ class UserControllerTest {
         String userJsonString = "{\"name\":\"User\",\"password\":\"password\"," +
                 "\"roles\":[\"ROLE_USER\"]}";
 
-        mockMvc.perform(post("/users")
+        mockMvc.perform(post(EndPoins.USERS)
                 .content(userJsonString)
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .accept("application/json"))
@@ -146,7 +147,7 @@ class UserControllerTest {
         String userJsonString = "{\"name\":\"User\",\"enabled\": true," +
                 "\"roles\":[\"ROLE_USER\"]}";
 
-        mockMvc.perform(put("/users/1")
+        mockMvc.perform(put(EndPoins.USERS + "/1")
                 .content(userJsonString)
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .accept("application/json"))
@@ -158,7 +159,8 @@ class UserControllerTest {
 
     @Test
     void delete() throws Exception {
-        mockMvc.perform(org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete("/users/1"))
+        mockMvc.perform(
+                org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete(EndPoins.USERS + "/1"))
                 .andExpect(status().isNoContent());
     }
 }

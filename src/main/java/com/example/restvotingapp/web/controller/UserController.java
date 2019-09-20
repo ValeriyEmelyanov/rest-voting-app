@@ -2,6 +2,7 @@ package com.example.restvotingapp.web.controller;
 
 import com.example.restvotingapp.dto.UserDto;
 import com.example.restvotingapp.service.UserService;
+import com.example.restvotingapp.util.EndPoins;
 import com.example.restvotingapp.web.response.UserRest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("users")
+@RequestMapping(EndPoins.USERS)
 @Transactional(readOnly = true)
 public class UserController {
 

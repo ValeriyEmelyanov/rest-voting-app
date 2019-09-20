@@ -85,7 +85,7 @@ public class VoteServiceImpl implements VoteServices {
     public VoteDto create(VoteDto voteDetails) {
         // Check current time
         if (LocalTime.now().isAfter(DEAD_LINE_TIME)) {
-            throw new WrongTimeException("Voting is impossible befor " + DEAD_LINE_TIME);
+            throw new WrongTimeException("Voting is impossible after " + DEAD_LINE_TIME);
         }
 
         // Check if vote for date and user exists

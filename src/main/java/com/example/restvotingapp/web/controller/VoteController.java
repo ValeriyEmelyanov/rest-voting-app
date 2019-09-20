@@ -3,6 +3,7 @@ package com.example.restvotingapp.web.controller;
 import com.example.restvotingapp.dto.VoteDto;
 import com.example.restvotingapp.dto.VotePlainDto;
 import com.example.restvotingapp.service.VoteServices;
+import com.example.restvotingapp.util.EndPoins;
 import com.example.restvotingapp.web.response.VoteRest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("votes")
+@RequestMapping(EndPoins.VOTES)
 @Transactional(readOnly = true)
 public class VoteController {
 

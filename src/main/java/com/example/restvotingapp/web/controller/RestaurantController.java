@@ -2,6 +2,7 @@ package com.example.restvotingapp.web.controller;
 
 import com.example.restvotingapp.dto.RestaurantDto;
 import com.example.restvotingapp.service.RestaurantService;
+import com.example.restvotingapp.util.EndPoins;
 import com.example.restvotingapp.web.response.RestaurantRest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("restaurants")
+@RequestMapping(EndPoins.RESTAURANTS)
 @Transactional(readOnly = true)
 public class RestaurantController {
 

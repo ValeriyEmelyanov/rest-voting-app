@@ -2,6 +2,7 @@ package com.example.restvotingapp.web.controller;
 
 import com.example.restvotingapp.dto.MenuDto;
 import com.example.restvotingapp.service.MenuService;
+import com.example.restvotingapp.util.EndPoins;
 import com.example.restvotingapp.web.response.MenuRest;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -18,7 +19,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("menus")
+@RequestMapping(EndPoins.MENUS)
 @Transactional(readOnly = true)
 public class MenuController {
 
