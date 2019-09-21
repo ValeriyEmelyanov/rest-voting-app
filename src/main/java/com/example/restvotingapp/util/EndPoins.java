@@ -1,7 +1,5 @@
 package com.example.restvotingapp.util;
 
-import com.sun.xml.internal.bind.v2.model.core.ID;
-
 public class EndPoins {
 
     public static final String USERS    = "/users";
