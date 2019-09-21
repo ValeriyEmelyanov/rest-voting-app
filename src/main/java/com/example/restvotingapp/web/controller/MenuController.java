@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(EndPoins.MENUS)
+@RequestMapping
 @Transactional(readOnly = true)
 public class MenuController {
 
@@ -32,7 +32,7 @@ public class MenuController {
         this.menuService = menuService;
     }
 
-    @GetMapping(path = "/date/{date}")
+    @GetMapping(path = EndPoins.MENUS_DATE)
     public List<MenuRest> listByDate(@PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         log.info("Get menu list for {}", date);
 
@@ -45,7 +45,7 @@ public class MenuController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping(path = "/date/{date}/restaurant/{restaurant_id}")
+    @GetMapping(path = EndPoins.MENUS_DATE_RESTAURANT)
     public MenuRest getByDateAndRestaurant(
             @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
             @PathVariable Integer restaurant_id) {
@@ -54,7 +54,7 @@ public class MenuController {
         return get(menuService.getByDateAndRestaurant(date, restaurant_id));
     }
 
-    @GetMapping(path = "/{id}")
+    @GetMapping(path = EndPoins.MENUS_ID)
     public MenuRest getById(@PathVariable Integer id) {
         log.info("Get menu {}", id);
 
@@ -66,7 +66,7 @@ public class MenuController {
         return modelMapper.map(menuDto, MenuRest.class);
     }
 
-    @PostMapping
+    @PostMapping(path = EndPoins.MENUS)
     @Transactional
     @ResponseStatus(value = HttpStatus.CREATED)
     public MenuRest create(@Valid @RequestBody MenuDto menuDetails) {
@@ -78,7 +78,7 @@ public class MenuController {
         return modelMapper.map(createdMenu, MenuRest.class);
     }
 
-    @PutMapping(path = "/{id}")
+    @PutMapping(path = EndPoins.MENUS_ID)
     @Transactional
     public MenuRest update(@PathVariable Integer id, @RequestBody MenuDto menuDetails) {
         log.info("Update menu {}", id);
@@ -89,7 +89,7 @@ public class MenuController {
         return modelMapper.map(updatedMenu, MenuRest.class);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping(path = EndPoins.MENUS_ID)
     @Transactional
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Integer id) {

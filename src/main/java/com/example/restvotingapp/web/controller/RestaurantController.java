@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(EndPoins.RESTAURANTS)
 @Transactional(readOnly = true)
 public class RestaurantController {
 
@@ -30,7 +29,7 @@ public class RestaurantController {
         this.restaurantService = restaurantService;
     }
 
-    @GetMapping
+    @GetMapping(path = EndPoins.RESTAURANTS)
     public List<RestaurantRest> list(
             @RequestParam(value = "page", defaultValue = "1") int page,
             @RequestParam(value = "limit", defaultValue = "25") int limit) {
@@ -48,7 +47,7 @@ public class RestaurantController {
         return returnValue;
     }
 
-    @GetMapping("/active")
+    @GetMapping(path = EndPoins.RESTAURANTS_ACTIVE)
     public List<RestaurantRest> listActive() {
         log.info("Get active restaurants list");
 
@@ -64,7 +63,7 @@ public class RestaurantController {
         return returnValue;
     }
 
-    @GetMapping(path = "/{id}")
+    @GetMapping(path = EndPoins.RESTAURANTS_ID)
     public RestaurantRest getById(@PathVariable Integer id) {
         log.info("Get restaurant {}", id);
 
@@ -76,7 +75,7 @@ public class RestaurantController {
         return returnValue;
     }
 
-    @PostMapping
+    @PostMapping(path = EndPoins.RESTAURANTS)
     @Transactional
     @ResponseStatus(value = HttpStatus.CREATED)
     public RestaurantRest create(@Valid @RequestBody RestaurantDto restaurantDetails) {
@@ -90,7 +89,7 @@ public class RestaurantController {
         return returnValue;
     }
 
-    @PutMapping(path = "/{id}")
+    @PutMapping(path = EndPoins.RESTAURANTS_ID)
     @Transactional
     public RestaurantRest update(@PathVariable Integer id, @RequestBody RestaurantDto restaurantDetails) {
         log.info("Update restaurant {}", id);
@@ -103,7 +102,7 @@ public class RestaurantController {
         return returnValue;
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping(path = EndPoins.RESTAURANTS_ID)
     @Transactional
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Integer id) {

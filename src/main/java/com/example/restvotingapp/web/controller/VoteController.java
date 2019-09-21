@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(EndPoins.VOTES)
+@RequestMapping
 @Transactional(readOnly = true)
 public class VoteController {
 
@@ -33,7 +33,7 @@ public class VoteController {
         this.voteService = voteService;
     }
 
-    @GetMapping(path = "/date/{date}")
+    @GetMapping(path = EndPoins.VOTES_DATE)
     List<VoteRest> listByDate(
             @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
             @RequestParam(value = "page", defaultValue = "1") int page,
@@ -52,14 +52,14 @@ public class VoteController {
         return returnValue;
     }
 
-    @GetMapping(path = "/date/{date}/count")
+    @GetMapping(path = EndPoins.VOTES_DATE_COUNT)
     int getCountByDate(@PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         log.info("Get votes count for {}", date);
 
         return voteService.countAllByDate(date);
     }
 
-    @GetMapping(path = "/date/{date}/count/restaurant/{restaurant_id}")
+    @GetMapping(path = EndPoins.VOTES_DATE_COUNT_RESTAURANT)
     int getCountByDateAndRestaurant(
             @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
             @PathVariable(name = "restaurant_id") int restaurantId) {
@@ -68,7 +68,7 @@ public class VoteController {
         return voteService.countAllByDateAndRestaurant(date, restaurantId);
     }
 
-    @PostMapping
+    @PostMapping(path = EndPoins.VOTES)
     @Transactional
     @ResponseStatus(value = HttpStatus.CREATED)
     VoteRest create(@Valid @RequestBody VoteDto voteDetails) {
@@ -87,7 +87,7 @@ public class VoteController {
         return returnValue;
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping(path = EndPoins.VOTES_ID)
     @Transactional
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {

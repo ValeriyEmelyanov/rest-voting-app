@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(EndPoins.USERS)
+@RequestMapping
 @Transactional(readOnly = true)
 public class UserController {
 
@@ -30,7 +30,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping
+    @GetMapping(path = EndPoins.USERS)
     public List<UserRest> list(
             @RequestParam(value = "page", defaultValue = "1") int page,
             @RequestParam(value = "limit", defaultValue = "25") int limit) {
@@ -48,7 +48,7 @@ public class UserController {
         return returnValue;
     }
 
-    @GetMapping(path = "/{id}")
+    @GetMapping(path = EndPoins.USERS_ID)
     public UserRest getById(@PathVariable Integer id) {
         log.info("Get user {}", id);
 
@@ -60,7 +60,7 @@ public class UserController {
         return returnValue;
     }
 
-    @PostMapping
+    @PostMapping(path = EndPoins.USERS)
     @Transactional
     @ResponseStatus(value = HttpStatus.CREATED)
     public UserRest create(@Valid @RequestBody UserDto userDetails) {
@@ -74,7 +74,7 @@ public class UserController {
         return returnValue;
     }
 
-    @PutMapping(path = "/{id}")
+    @PutMapping(path = EndPoins.USERS_ID)
     @Transactional
     public UserRest update(@PathVariable Integer id, @RequestBody UserDto userDetails) {
         log.info("Update user {}", id);
@@ -87,7 +87,7 @@ public class UserController {
         return returnValue;
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping(path = EndPoins.USERS_ID)
     @Transactional
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Integer id) {

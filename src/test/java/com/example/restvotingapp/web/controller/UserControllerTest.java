@@ -92,7 +92,7 @@ class UserControllerTest {
         assertEquals(userDto.getEmail(), userRest.getEmail());
         assertEquals(userDto.isEnabled(), userRest.isEnabled());
 
-        mockMvc.perform(get(EndPoins.USERS + "/101"))
+        mockMvc.perform(get(EndPoins.USERS_ID.replace("{id}", "101")))
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON));
@@ -147,7 +147,7 @@ class UserControllerTest {
         String userJsonString = "{\"name\":\"User\",\"enabled\": true," +
                 "\"roles\":[\"ROLE_USER\"]}";
 
-        mockMvc.perform(put(EndPoins.USERS + "/1")
+        mockMvc.perform(put(EndPoins.USERS_ID.replace("{id}", "1"))
                 .content(userJsonString)
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .accept("application/json"))
@@ -160,7 +160,8 @@ class UserControllerTest {
     @Test
     void delete() throws Exception {
         mockMvc.perform(
-                org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete(EndPoins.USERS + "/1"))
+                org.springframework.test.web.servlet.request.MockMvcRequestBuilders
+                        .delete(EndPoins.USERS_ID.replace("{id}", "1")))
                 .andExpect(status().isNoContent());
     }
 }
