@@ -2,8 +2,9 @@ package com.example.restvotingapp.util;
 
 public class EndPoins {
 
-    public static final String USERS    = "/users";
-    public static final String USERS_ID = "/users/{id}";
+    public static final String USERS       = "/users";
+    public static final String USERS_ID    = "/users/{id}";
+    public static final String USERS_LOGIN = "/users/login";
 
     public static final String RESTAURANTS        = "/restaurants";
     public static final String RESTAURANTS_ID     = "/restaurants/{id}";

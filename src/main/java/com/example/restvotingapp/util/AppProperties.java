@@ -22,4 +22,8 @@ public class AppProperties {
         String expirationTime = env.getProperty("expirationTime");
         return Long.valueOf(expirationTime);
     }
+
+    public String getContextPath() {
+        return env.getProperty("server.servlet.context-path");
+    }
 }

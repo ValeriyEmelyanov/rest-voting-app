@@ -1,6 +1,7 @@
 package com.example.restvotingapp.security;
 
 import com.example.restvotingapp.service.UserService;
+import com.example.restvotingapp.util.EndPoins;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -27,7 +28,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST, SecurityConstants.SIGN_UP_URL).permitAll()
+                .antMatchers(HttpMethod.POST, EndPoins.USERS_LOGIN).permitAll()
                 .antMatchers(HttpMethod.GET, "/restaurants/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/menus/**").permitAll()
                 .antMatchers("/votes/**").permitAll()
@@ -50,7 +51,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
     public AuthenticationFilter getAuthenticationFilter() throws Exception {
         final AuthenticationFilter filter = new AuthenticationFilter(authenticationManager());
-        filter.setFilterProcessesUrl(SecurityConstants.SIGN_UP_URL);
+        filter.setFilterProcessesUrl(EndPoins.USERS_LOGIN);
         return filter;
     }
 }

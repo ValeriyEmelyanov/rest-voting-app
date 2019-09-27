@@ -66,9 +66,11 @@ API documentation is [here](Doc/api.md).
   * <a href="https://stackoverflow.com/questions/15646453/java-digits-validation">Java Digits Validation</a>
   * <a href="https://stackoverflow.com/questions/36173332/difference-between-valid-and-validated-in-spring">Difference between @Valid and @Validated in Spring</a>
 * Assurance
-  * <a href="http://appsdeveloperblog.com/tag/rest-assured/">REST-assured</a>
-  * <a href="https://habr.com/ru/post/421005/">REST-assured: полезные советы</a>
+  * <a href="http://appsdeveloperblog.com/tag/rest-assured/">**Apps Developer Blog** REST-assured</a>
+  * <a href="https://habr.com/ru/post/421005/">**habr** REST-assured: полезные советы</a>
   * <a href="https://github.com/eugenp/tutorials/tree/master/testing-modules/rest-assured">eugenp/tutorials</a>
+  * <a href="https://stackoverflow.com/questions/40665216/how-to-change-tests-execution-order-in-junit5">How to change tests execution order in JUnit5?</a>
+  * <a href="https://stackoverflow.com/questions/54947645/junits-testmethodorder-annotation-not-working">JUnit's @TestMethodOrder annotation not working</a>
 * HTTP codes
   * <a href="https://tools.ietf.org/html/rfc7231#section-6.5.8">6.5.8.  409 Conflict</a>
 * cUrl

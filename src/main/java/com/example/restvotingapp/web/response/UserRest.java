@@ -1,6 +1,9 @@
 package com.example.restvotingapp.web.response;
 
+import com.example.restvotingapp.entity.Role;
+
 import java.util.Date;
+import java.util.Set;
 
 public class UserRest {
     private Integer id;
@@ -8,6 +11,7 @@ public class UserRest {
     private String email;
     private Date registered;
     private boolean enabled;
+    private Set<Role> roles;
 
     public Integer getId() {
         return id;
@@ -47,5 +51,13 @@ public class UserRest {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }
