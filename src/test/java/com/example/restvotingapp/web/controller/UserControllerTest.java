@@ -2,7 +2,7 @@ package com.example.restvotingapp.web.controller;
 
 import com.example.restvotingapp.dto.UserDto;
 import com.example.restvotingapp.entity.Role;
-import com.example.restvotingapp.service.Impl.UserServiceImpl;
+import com.example.restvotingapp.service.impl.UserServiceImpl;
 import com.example.restvotingapp.util.EndPoins;
 import com.example.restvotingapp.web.response.UserRest;
 import org.junit.jupiter.api.BeforeEach;

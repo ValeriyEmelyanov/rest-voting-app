@@ -1,4 +1,4 @@
-package com.example.restvotingapp.service.Impl;
+package com.example.restvotingapp.service.impl;
 
 import com.example.restvotingapp.dto.MenuDto;
 import com.example.restvotingapp.dto.MenuItemDto;

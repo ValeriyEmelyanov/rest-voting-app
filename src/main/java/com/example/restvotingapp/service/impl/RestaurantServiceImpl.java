@@ -1,4 +1,4 @@
-package com.example.restvotingapp.service.Impl;
+package com.example.restvotingapp.service.impl;
 
 import com.example.restvotingapp.dto.RestaurantDto;
 import com.example.restvotingapp.entity.Restaurant;
