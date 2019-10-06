@@ -39,6 +39,8 @@ public class VoteServiceImpl implements VoteServices {
     private UserRepository userRepository;
     private MenuRepository menuRepository;
 
+    private ModelMapper modelMapper;
+
     @Autowired
     public void setVoteRepository(VoteRepository voteRepository) {
         this.voteRepository = voteRepository;
@@ -57,6 +59,11 @@ public class VoteServiceImpl implements VoteServices {
     @Autowired
     public void setMenuRepository(MenuRepository menuRepository) {
         this.menuRepository = menuRepository;
+    }
+
+    @Autowired
+    public void setModelMapper(ModelMapper modelMapper) {
+        this.modelMapper = modelMapper;
     }
 
     @Override
@@ -107,8 +114,6 @@ public class VoteServiceImpl implements VoteServices {
         if (id != null) {
             voteRepository.deleteById(id);
         }
-
-        ModelMapper modelMapper = new ModelMapper();
 
         // Save Vote entity
         Menu menuEntity = modelMapper.map(menuWithoutItemsRest, Menu.class);

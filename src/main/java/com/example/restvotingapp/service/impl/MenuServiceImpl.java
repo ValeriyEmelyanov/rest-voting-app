@@ -30,6 +30,8 @@ public class MenuServiceImpl implements MenuService {
     private RestaurantRepository restaurantRepository;
     private MenuItemRepository itemRepository;
 
+    private ModelMapper modelMapper;
+
     @Autowired
     public void setMenuRepository(MenuRepository menuRepository) {
         this.menuRepository = menuRepository;
@@ -45,10 +47,14 @@ public class MenuServiceImpl implements MenuService {
         this.itemRepository = itemRepository;
     }
 
+    @Autowired
+    public void setModelMapper(ModelMapper modelMapper) {
+        this.modelMapper = modelMapper;
+    }
+
     @Override
     public List<MenuDto> listByDate(LocalDate date) {
         List<Menu> menus = menuRepository.findAllByDate(date);
-        ModelMapper modelMapper = new ModelMapper();
         return menus
                 .stream()
                 .map(menu -> modelMapper.map(menu, MenuDto.class))
@@ -61,7 +67,6 @@ public class MenuServiceImpl implements MenuService {
                 .orElseThrow(() -> new RecordNotFoundException("Restaurant with ID: " + restaurant_id + " not found"));
 
         Menu menuEntity = menuRepository.findByDateAndRestaurant(date, restaurantEntity);
-        ModelMapper modelMapper = new ModelMapper();
 
         return modelMapper.map(menuEntity, MenuDto.class);
     }
@@ -70,8 +75,6 @@ public class MenuServiceImpl implements MenuService {
     public MenuDto getById(Integer id) {
         Menu menuEntity = menuRepository.getById(id)
                 .orElseThrow(() -> new RecordNotFoundException("Menu with ID: " + id + " not found"));
-
-        ModelMapper modelMapper = new ModelMapper();
 
         return modelMapper.map(menuEntity, MenuDto.class);
     }
@@ -106,8 +109,6 @@ public class MenuServiceImpl implements MenuService {
 
         Menu storedMenu = menuRepository.save(menuEntity);
 
-        ModelMapper modelMapper = new ModelMapper();
-
         return modelMapper.map(storedMenu, MenuDto.class);
     }
 
@@ -136,8 +137,6 @@ public class MenuServiceImpl implements MenuService {
         menuEntity.setItems(items);
 
         Menu updatedMenu = menuRepository.save(menuEntity);
-
-        ModelMapper modelMapper = new ModelMapper();
 
         return modelMapper.map(updatedMenu, MenuDto.class);
     }

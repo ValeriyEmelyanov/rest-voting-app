@@ -75,5 +75,7 @@ API documentation is [here](Doc/api.md).
   * <a href="https://tools.ietf.org/html/rfc7231#section-6.5.8">6.5.8.  409 Conflict</a>
 * cUrl
   * <a href="https://www.mkyong.com/spring/curl-post-request-examples/">cURL – POST request examples</a>
+* Mapping
+  * <a href="http://modelmapper.org/user-manual/faq/">ModelMapper FAQ</a>
 * API Documentation
   * <a href="https://gist.github.com/iros/3426278">Documenting your REST API</a>

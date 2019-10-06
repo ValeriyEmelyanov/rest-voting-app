@@ -1,6 +1,7 @@
 package com.example.restvotingapp;
 
 import com.example.restvotingapp.util.AppProperties;
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -26,5 +27,10 @@ public class RestVotingAppApplication {
     @Bean(name = "AppProperties")
     public AppProperties getAppProperties() {
         return new AppProperties();
+    }
+
+    @Bean(name = "ModelMapper")
+    public ModelMapper getModelMapper() {
+        return new ModelMapper();
     }
 }

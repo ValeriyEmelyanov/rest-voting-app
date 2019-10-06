@@ -27,9 +27,16 @@ public class MenuController {
 
     private MenuService menuService;
 
+    private ModelMapper modelMapper;
+
     @Autowired
     public void setMenuService(MenuService menuService) {
         this.menuService = menuService;
+    }
+
+    @Autowired
+    public void setModelMapper(ModelMapper modelMapper) {
+        this.modelMapper = modelMapper;
     }
 
     @GetMapping(path = EndPoins.MENUS_DATE)
@@ -37,7 +44,6 @@ public class MenuController {
         log.info("Get menu list for {}", date);
 
         List<MenuDto> menus = menuService.listByDate(date);
-        ModelMapper modelMapper = new ModelMapper();
 
         return menus
                 .stream()
@@ -62,7 +68,6 @@ public class MenuController {
     }
 
     private MenuRest get(MenuDto menuDto) {
-        ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(menuDto, MenuRest.class);
     }
 
@@ -73,7 +78,6 @@ public class MenuController {
         log.info("Greate menu");
 
         MenuDto createdMenu = menuService.create(menuDetails);
-        ModelMapper modelMapper = new ModelMapper();
 
         return modelMapper.map(createdMenu, MenuRest.class);
     }
@@ -84,7 +88,6 @@ public class MenuController {
         log.info("Update menu {}", id);
 
         MenuDto updatedMenu = menuService.update(id, menuDetails);
-        ModelMapper modelMapper = new ModelMapper();
 
         return modelMapper.map(updatedMenu, MenuRest.class);
     }
