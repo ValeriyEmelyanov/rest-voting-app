@@ -1,7 +1,6 @@
 package com.example.restvotingapp.security;
 
 import com.example.restvotingapp.service.UserService;
-import io.jsonwebtoken.Jwts;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -35,31 +34,21 @@ public class AuthorizationFilter extends BasicAuthenticationFilter {
             return;
         }
 
-        UsernamePasswordAuthenticationToken authentication =  getAuthentication(request);
+        UsernamePasswordAuthenticationToken authentication = getAuthentication(request);
         SecurityContextHolder.getContext().setAuthentication(authentication);
         chain.doFilter(request, response);
 
     }
 
     private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
-        String token = request.getHeader(SecurityConstants.HEADER_STRING);
+        String user = SecurityUtil.getUserFromRequest(request);
 
-        if (token != null) {
-            token = token.replace(SecurityConstants.TOKEN_PREFIX, "");
-            String user = Jwts.parser()
-                    .setSigningKey(SecurityConstants.getTokenSecret())
-                    .parseClaimsJws(token)
-                    .getBody()
-                    .getSubject();
-            if (user != null) {
-                UserDetails userDetails = userService.loadUserByUsername(user);
-                if (userDetails != null) {
-                    return new UsernamePasswordAuthenticationToken(
-                            user, userDetails.getPassword(), userDetails.getAuthorities());
-                }
+        if (user != null) {
+            UserDetails userDetails = userService.loadUserByUsername(user);
+            if (userDetails != null) {
+                return new UsernamePasswordAuthenticationToken(
+                        user, userDetails.getPassword(), userDetails.getAuthorities());
             }
-
-            return null;
         }
 
         return null;

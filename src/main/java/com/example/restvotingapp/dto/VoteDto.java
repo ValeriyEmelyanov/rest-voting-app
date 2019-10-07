@@ -11,7 +11,6 @@ public class VoteDto {
 
     private Long id;
 
-    @NotNull
     private User user;
 
     @NotNull

@@ -9,6 +9,7 @@ import com.example.restvotingapp.entity.User;
 import com.example.restvotingapp.entity.Vote;
 import com.example.restvotingapp.exceptions.RecordAlreadyExistsException;
 import com.example.restvotingapp.exceptions.RecordNotFoundException;
+import com.example.restvotingapp.exceptions.WrongRequest;
 import com.example.restvotingapp.exceptions.WrongTimeException;
 import com.example.restvotingapp.repository.MenuRepository;
 import com.example.restvotingapp.repository.RestaurantRepository;
@@ -89,16 +90,15 @@ public class VoteServiceImpl implements VoteServices {
 
     @Override
     @Transactional
-    public VoteDto create(VoteDto voteDetails) {
-        // Check current time
-        if (LocalTime.now().isAfter(DEAD_LINE_TIME)) {
-            throw new WrongTimeException("Voting is impossible after " + DEAD_LINE_TIME);
-        }
+    public VoteDto create(VoteDto voteDetails, String userEmail) {
+        checkCurrentTime();
 
         // Check if vote for date and user exists
-        Integer userId = voteDetails.getUser().getId();
-        User userEntity = userRepository.findById(userId)
-                .orElseThrow(() -> new UsernameNotFoundException("User with ID: " + userId + " not found"));
+        User userEntity = userRepository.findByEmail(userEmail);
+        if (userEntity == null){
+            throw new UsernameNotFoundException("User with email: " + userEmail + " not found");
+        }
+
         Integer menuId = voteDetails.getMenu().getId();
         MenuWithoutItemsDto menuWithoutItemsRest = menuRepository.getByIdWithoutItems(menuId);
         if (menuWithoutItemsRest == null) {
@@ -130,10 +130,22 @@ public class VoteServiceImpl implements VoteServices {
 
     @Override
     @Transactional
-    public void delete(Long id) {
+    public void delete(Long id, String userEmail) {
+        checkCurrentTime();
+
         Vote vote = voteRepository.findById(id)
                 .orElseThrow(() -> new RecordNotFoundException("Vote with ID: " + id + " not found"));
 
+        if (!userEmail.equals(vote.getUser().getEmail())) {
+            throw new WrongRequest("Wrong ID:" + id);
+        }
+
         voteRepository.deleteById(id);
+    }
+
+    private void checkCurrentTime() {
+        if (LocalTime.now().isAfter(DEAD_LINE_TIME)) {
+            throw new WrongTimeException("Voting is impossible after " + DEAD_LINE_TIME);
+        }
     }
 }

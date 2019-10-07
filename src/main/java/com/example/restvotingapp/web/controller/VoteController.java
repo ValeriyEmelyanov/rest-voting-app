@@ -2,6 +2,8 @@ package com.example.restvotingapp.web.controller;
 
 import com.example.restvotingapp.dto.VoteDto;
 import com.example.restvotingapp.dto.VotePlainDto;
+import com.example.restvotingapp.security.SecurityUtil;
+import com.example.restvotingapp.service.UserService;
 import com.example.restvotingapp.service.VoteServices;
 import com.example.restvotingapp.util.EndPoins;
 import com.example.restvotingapp.web.response.VoteRest;
@@ -14,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -27,10 +30,16 @@ public class VoteController {
     private final Logger log = LoggerFactory.getLogger(getClass());
 
     private VoteServices voteService;
+    private UserService userService;
 
     @Autowired
     public void setVoteService(VoteServices voteService) {
         this.voteService = voteService;
+    }
+
+    @Autowired
+    public void setUserService(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping(path = EndPoins.VOTES_DATE)
@@ -71,12 +80,18 @@ public class VoteController {
     @PostMapping(path = EndPoins.VOTES)
     @Transactional
     @ResponseStatus(value = HttpStatus.CREATED)
-    VoteRest create(@Valid @RequestBody VoteDto voteDetails) {
+    VoteRest create(@Valid @RequestBody VoteDto voteDetails, HttpServletRequest request) {
         log.info("Create vote");
 
-        VoteRest returnValue = new VoteRest();
+        // Get current user from request
+        String userEmail = SecurityUtil.getUserFromRequest(request);
+        if (userEmail == null) {
+            throw new RuntimeException("Unexpected error");
+        }
 
-        VoteDto createdVote = voteService.create(voteDetails);
+        VoteDto createdVote = voteService.create(voteDetails, userEmail);
+
+        VoteRest returnValue = new VoteRest();
         BeanUtils.copyProperties(createdVote, returnValue, "user,menu,restaurant");
         returnValue.setUserId(createdVote.getUser().getId());
         returnValue.setUserName(createdVote.getUser().getName());
@@ -90,9 +105,15 @@ public class VoteController {
     @DeleteMapping(path = EndPoins.VOTES_ID)
     @Transactional
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id) {
+    public void delete(@PathVariable Long id, HttpServletRequest request) {
         log.info("Delete vote {}", id);
 
-        voteService.delete(id);
+        // Get current user from request
+        String userEmail = SecurityUtil.getUserFromRequest(request);
+        if (userEmail == null) {
+            throw new RuntimeException("Unexpected error");
+        }
+
+        voteService.delete(id, userEmail);
     }
 }

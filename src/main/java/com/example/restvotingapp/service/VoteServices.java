@@ -12,6 +12,6 @@ public interface VoteServices {
     List<VotePlainDto> listByDate(LocalDate date, int page, int limit);
     int countAllByDate(LocalDate date);
     int countAllByDateAndRestaurant(LocalDate date, int restaurantId);
-    VoteDto create(VoteDto voteDetails);
-    void delete(Long id);
+    VoteDto create(VoteDto voteDetails, String userEmail);
+    void delete(Long id, String userEmail);
 }
