@@ -20,6 +20,7 @@ public interface MenuRepository extends CrudRepository<Menu, Integer> {
 
     @Query("select " +
             "new com.example.restvotingapp.dto.MenuWithoutItemsDto(m.id, m.restaurant, m.date) " +
-            "from Menu m where m.id=:id")
-    MenuWithoutItemsDto getByIdWithoutItems(@Param("id") Integer id);
+            "from Menu m where m.date=:date and m.restaurant=:restaurantId")
+    Optional<MenuWithoutItemsDto> findByDateAndRestaurantQL(
+            @Param("date") LocalDate date, @Param("restaurantId") Restaurant restaurant);
 }

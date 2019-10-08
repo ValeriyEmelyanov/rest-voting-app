@@ -13,9 +13,9 @@ public class VoteDto {
 
     private User user;
 
-    @NotNull
     private Menu menu;
 
+    @NotNull
     private Restaurant restaurant;
 
     @NotNull

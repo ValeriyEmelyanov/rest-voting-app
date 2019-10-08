@@ -82,7 +82,7 @@ public class VoteServiceImpl implements VoteServices {
 
     @Override
     public int countAllByDateAndRestaurant(LocalDate date, int restaurantId) {
-        Restaurant restaurantEntity = restaurantRepository.findById(restaurantId)
+        Restaurant restaurantEntity = restaurantRepository.getById(restaurantId)
                 .orElseThrow(() -> new RecordNotFoundException("Restaurant with ID: " + restaurantId + " not found"));
 
         return voteRepository.countAllByDateAndRestaurant(date, restaurantEntity);
@@ -93,19 +93,24 @@ public class VoteServiceImpl implements VoteServices {
     public VoteDto create(VoteDto voteDetails, String userEmail) {
         checkCurrentTime();
 
-        // Check if vote for date and user exists
+        // Check if vote for date and user exists or user already voted
+
         User userEntity = userRepository.findByEmail(userEmail);
         if (userEntity == null){
             throw new UsernameNotFoundException("User with email: " + userEmail + " not found");
         }
 
-        Integer menuId = voteDetails.getMenu().getId();
-        MenuWithoutItemsDto menuWithoutItemsRest = menuRepository.getByIdWithoutItems(menuId);
-        if (menuWithoutItemsRest == null) {
-            throw  new RecordNotFoundException("Menu with ID: " + menuId + " not found");
-        }
+        Integer restaurantId = voteDetails.getRestaurant().getId();
+        Restaurant restaurant = restaurantRepository.getById(restaurantId)
+                .orElseThrow(() -> new RecordNotFoundException("Restaurant with ID: " + restaurantId + " not found"));
 
-        Long id = voteRepository.findByDateAndUserAndMenuQL(menuWithoutItemsRest.getDate(), userEntity, menuId);
+        MenuWithoutItemsDto menuWithoutItemsRest = menuRepository.findByDateAndRestaurantQL(
+                voteDetails.getDate(), restaurant)
+                .orElseThrow(() -> new RecordNotFoundException("Menu for restaurant ID:" + restaurantId
+                        + " and date:" + voteDetails.getDate() + "not found"));
+
+        Long id = voteRepository.findByDateAndUserAndMenuQL(
+                menuWithoutItemsRest.getDate(), userEntity, menuWithoutItemsRest.getId());
         if (id != null) {
             throw new RecordAlreadyExistsException("Vote already exists!");
         }
@@ -116,6 +121,7 @@ public class VoteServiceImpl implements VoteServices {
         }
 
         // Save Vote entity
+
         Menu menuEntity = modelMapper.map(menuWithoutItemsRest, Menu.class);
         Vote voteEntity = new Vote();
         voteEntity.setUser(userEntity);
